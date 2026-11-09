@@ -20,8 +20,8 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-obsidian relative bg-tech-dots">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 bg-obsidian/90 relative">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
@@ -29,7 +29,7 @@ export const ContactSection: React.FC = () => {
             <span className="font-mono text-xs sm:text-[13px] text-accent-violet tracking-[0.2em] uppercase block font-semibold">
               08 // START A CONVERSATION
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-[36px] lg:text-[42px] font-bold text-primary-text tracking-tight">
               Direct Contact & Channels
             </h2>
           </div>
@@ -42,7 +42,7 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           
           {/* Left: Editorial Narrative & Statement (6 cols) */}
-          <div className="lg:col-span-6 border border-surface-border/80 bg-midnight/80 p-8 sm:p-10 backdrop-blur-sm flex flex-col justify-between space-y-6 rounded-sm shadow-xl">
+          <div className="lg:col-span-6 border border-surface-border/80 bg-midnight/80 p-5 sm:p-10 backdrop-blur-sm flex flex-col justify-between space-y-6 rounded-sm shadow-xl">
             
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-surface/50 border border-surface-border text-xs font-mono text-accent-cyan">

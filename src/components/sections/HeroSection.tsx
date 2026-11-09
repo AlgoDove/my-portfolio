@@ -20,13 +20,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-[90vh] pt-32 pb-20 flex items-center justify-center bg-tech-grid overflow-hidden border-b border-surface-border/40"
+      className="relative min-h-[90vh] pt-32 pb-20 flex items-center justify-center overflow-hidden border-b border-surface-border/40"
     >
       {/* Background atmospheric lighting accents */}
       <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[650px] h-[450px] bg-accent-violet/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/3 right-1/4 w-[400px] h-[300px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
+      <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Identity & Editorial Story (7 cols) */}

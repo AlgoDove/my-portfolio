@@ -35,6 +35,11 @@ export default {
         sans: ['Manrope', 'sans-serif'],
         mono: ['"IBM Plex Mono"', 'monospace'],
       },
+      maxWidth: {
+        // Slightly wider main container — better use of large screens
+        // 7xl = 80rem (1280px), 8xl = 88rem (1408px)
+        '8xl': '88rem',
+      },
       animation: {
         'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'spin-very-slow': 'spin 40s linear infinite',

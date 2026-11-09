@@ -10,8 +10,8 @@ export const BeyondEngineeringSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-midnight/25 border-b border-surface-border/40 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-midnight/20 border-b border-surface-border/40 relative">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-4 border-b border-surface-border/50 gap-2">

@@ -16,8 +16,8 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
   const fraudDetection = SELECTED_PROJECTS.find(p => p.id === 'fraud-detection') || SELECTED_PROJECTS[3];
 
   return (
-    <section id="work" className="py-24 bg-obsidian relative border-b border-surface-border/40 bg-tech-blueprint">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="work" className="py-24 bg-obsidian/90 relative border-b border-surface-border/40">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-20 pb-4 border-b border-surface-border/50 gap-2">
@@ -84,25 +84,25 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
           </div>
 
           {/* Open Architecture Canvas Stage (Not trapped in a small card) */}
-          <div className="mb-10 border border-surface-border/80 bg-midnight/90 p-4 sm:p-8 backdrop-blur-sm">
-            <div className="flex items-center justify-between pb-3 mb-4 border-b border-surface-border/50 font-mono text-[10.5px] text-muted-dim">
+          <div className="mb-10 border border-surface-border/80 bg-midnight/90 p-3 sm:p-6 md:p-8 backdrop-blur-sm rounded-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-surface-border/50 font-mono text-[10.5px] text-muted-dim gap-1.5">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
                 <span className="text-primary-text font-semibold">SYSTEM TOPOLOGY // MODULAR MONOLITH PIPELINE</span>
               </div>
-              <span className="text-accent-cyan">VERIFIED: 217 PASSING XUNIT TESTS</span>
+              <span className="text-accent-cyan font-semibold">VERIFIED: 217 PASSING XUNIT TESTS</span>
             </div>
 
             <ProjectSchematic
               projectId={procura.id}
               imagePath={procura.imagePath}
               title={procura.title}
-              className="w-full min-h-[280px] sm:min-h-[340px]"
+              className="w-full min-h-[220px] sm:min-h-[280px] md:min-h-[340px]"
             />
           </div>
 
           {/* Procura Editorial Deep-Dive Columns */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
             
             {/* Left: Problem & Solution (5 cols) */}
             <div className="lg:col-span-5 space-y-6">
@@ -125,13 +125,13 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
               </div>
 
               {/* Verified Metrics Strip */}
-              <div className="pt-2 grid grid-cols-3 gap-3">
+              <div className="pt-2 grid grid-cols-3 gap-2 sm:gap-3">
                 {procura.verifiedMetrics?.map((metric, mIdx) => (
-                  <div key={mIdx} className="p-3 border border-surface-border/70 bg-surface/20">
-                    <div className="font-heading font-bold text-sm text-primary-text">
+                  <div key={mIdx} className="p-2.5 sm:p-3 border border-surface-border/70 bg-surface/20 rounded-sm">
+                    <div className="font-heading font-bold text-xs sm:text-sm text-primary-text">
                       {metric.value}
                     </div>
-                    <div className="font-mono text-[9px] text-muted-dim uppercase mt-0.5">
+                    <div className="font-mono text-[8.5px] sm:text-[9.5px] text-muted-dim uppercase mt-0.5 truncate">
                       {metric.label}
                     </div>
                   </div>
@@ -197,7 +197,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
           {/* ------------------------------------------------------------ */}
           {/* Project 2: Enterprise Approval Engine (Horizontal Split)     */}
           {/* ------------------------------------------------------------ */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-surface-border/70 bg-midnight/60 p-6 sm:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-surface-border/70 bg-midnight/60 p-4 sm:p-8 rounded-sm">
             
             <div className="lg:col-span-6 space-y-4">
               <div className="flex items-center gap-2">
@@ -265,7 +265,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
           {/* ------------------------------------------------------------ */}
           {/* Project 3: FixMyArea (Civic Tech Asymmetric Layout)          */}
           {/* ------------------------------------------------------------ */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-surface-border/70 bg-midnight/60 p-6 sm:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-surface-border/70 bg-midnight/60 p-4 sm:p-8 rounded-sm">
             
             <div className="lg:col-span-6 lg:order-2 space-y-4">
               <div className="flex items-center gap-2">
@@ -333,7 +333,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
           {/* ------------------------------------------------------------ */}
           {/* Project 4: Fraud Detection (Deep Learning Anomaly Layout)     */}
           {/* ------------------------------------------------------------ */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-surface-border/70 bg-midnight/60 p-6 sm:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-surface-border/70 bg-midnight/60 p-4 sm:p-8 rounded-sm">
             
             <div className="lg:col-span-6 space-y-4">
               <div className="flex items-center gap-2">

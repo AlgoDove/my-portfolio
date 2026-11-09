@@ -4,8 +4,8 @@ import { EDUCATION_DATA } from '../../data/portfolioData';
 
 export const EducationSection: React.FC = () => {
   return (
-    <section id="education" className="py-24 bg-obsidian border-b border-surface-border/40 relative bg-tech-dots">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="education" className="py-24 bg-obsidian/90 border-b border-surface-border/40 relative">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
@@ -13,7 +13,7 @@ export const EducationSection: React.FC = () => {
             <span className="font-mono text-xs sm:text-[13px] text-accent-violet tracking-[0.2em] uppercase block font-semibold">
               06 // ACADEMIC RECORD & SCHOLARSHIP
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-[36px] lg:text-[42px] font-bold text-primary-text tracking-tight">
               Education & Academic Excellence
             </h2>
           </div>
@@ -28,7 +28,7 @@ export const EducationSection: React.FC = () => {
           {/* Main Institution & Honors (8 cols) */}
           <div className="lg:col-span-8 space-y-6">
             
-            <div className="border border-surface-border/80 bg-midnight/80 p-6 sm:p-8 backdrop-blur-sm space-y-6">
+            <div className="border border-surface-border/80 bg-midnight/80 p-4 sm:p-8 backdrop-blur-sm space-y-6 rounded-sm">
               
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-surface-border/50 pb-4">
                 <div className="flex items-center gap-3">
@@ -77,7 +77,7 @@ export const EducationSection: React.FC = () => {
           {/* Academic Standing Metric Column (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             
-            <div className="border border-surface-border/80 bg-midnight/90 p-6 text-center space-y-3 backdrop-blur-sm">
+            <div className="border border-surface-border/80 bg-midnight/90 p-4 sm:p-6 text-center space-y-3 backdrop-blur-sm rounded-sm">
               <span className="font-mono text-[10px] text-muted-dim uppercase tracking-wider block">
                 CUMULATIVE ACADEMIC STANDING
               </span>

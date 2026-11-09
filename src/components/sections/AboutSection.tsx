@@ -6,11 +6,11 @@ export const AboutSection: React.FC = () => {
   const [profileImgFailed, setProfileImgFailed] = useState(false);
 
   return (
-    <section id="about" className="py-24 bg-midnight/30 relative border-b border-surface-border/40 bg-tech-dots">
+    <section id="about" className="py-24 bg-midnight/30 relative border-b border-surface-border/40">
       {/* Subtle atmospheric ambient glow */}
       <div className="absolute top-1/2 left-10 w-96 h-96 bg-accent-violet/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
@@ -18,7 +18,7 @@ export const AboutSection: React.FC = () => {
             <span className="font-mono text-xs sm:text-[13px] text-accent-violet tracking-[0.2em] uppercase block font-semibold">
               01 // ENGINEERING PHILOSOPHY & STORY
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-[36px] lg:text-[42px] font-bold text-primary-text tracking-tight">
               The Person Behind the Code
             </h2>
           </div>
@@ -114,7 +114,7 @@ export const AboutSection: React.FC = () => {
           {/* Right: Technical Identity Dossier (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="relative border border-surface-border bg-midnight/70 p-6 backdrop-blur-sm">
+            <div className="relative border border-surface-border bg-midnight/70 p-4 sm:p-6 backdrop-blur-sm rounded-sm">
               
               {/* Dossier Header Line */}
               <div className="flex items-center justify-between pb-3 border-b border-surface-border/50 text-[10px] font-mono text-muted-dim">

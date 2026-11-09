@@ -20,8 +20,8 @@ export const TechnicalProfileSection: React.FC = () => {
   const activeCategory = TECHNICAL_SKILLS[selectedCategoryIndex];
 
   return (
-    <section id="stack" className="py-24 bg-obsidian border-b border-surface-border/40 relative bg-tech-blueprint">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="stack" className="py-24 bg-obsidian/90 border-b border-surface-border/40 relative">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
@@ -29,7 +29,7 @@ export const TechnicalProfileSection: React.FC = () => {
             <span className="font-mono text-xs sm:text-[13px] text-accent-cyan tracking-[0.2em] uppercase block font-semibold">
               04 // TECHNICAL PROFILE & FOUNDATIONS
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-[36px] lg:text-[42px] font-bold text-primary-text tracking-tight">
               The Tools Behind the Work
             </h2>
           </div>

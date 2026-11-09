@@ -4,8 +4,8 @@ import { EXPERIENCE_DATA } from '../../data/portfolioData';
 
 export const ExperienceSection: React.FC = () => {
   return (
-    <section id="experience" className="py-24 bg-midnight/40 border-b border-surface-border/40 relative bg-tech-dots">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-24 bg-midnight/35 border-b border-surface-border/40 relative">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
@@ -13,7 +13,7 @@ export const ExperienceSection: React.FC = () => {
             <span className="font-mono text-xs sm:text-[13px] text-accent-violet tracking-[0.2em] uppercase block font-semibold">
               03 // OPERATIONAL ENGINEERING
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-[36px] lg:text-[42px] font-bold text-primary-text tracking-tight">
               Where Software Meets Real Operations
             </h2>
           </div>
@@ -72,7 +72,7 @@ export const ExperienceSection: React.FC = () => {
                 <ShieldAlert className="w-4 h-4" />
                 <span>Credible Technical Framing</span>
               </div>
-              <p className="leading-relaxed font-sans text-xs sm:text-[12.5px] text-muted-text">
+              <p className="leading-relaxed font-sans text-xs sm:text-[13px] text-muted-text">
                 {EXPERIENCE_DATA.disclaimer}
               </p>
             </div>
@@ -82,7 +82,7 @@ export const ExperienceSection: React.FC = () => {
           {/* Right Column: Technical Ledger of Direct Activities (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             
-            <div className="border border-surface-border/80 bg-midnight/80 p-6 backdrop-blur-sm space-y-6">
+            <div className="border border-surface-border/80 bg-midnight/80 p-4 sm:p-6 backdrop-blur-sm space-y-6 rounded-sm">
               
               <div className="flex items-center justify-between pb-3 border-b border-surface-border/50 text-xs font-mono text-muted-dim">
                 <div className="flex items-center gap-2 font-semibold text-primary-text">

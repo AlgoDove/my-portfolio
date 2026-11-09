@@ -5,6 +5,21 @@
 @layer base {
   :root {
     color-scheme: dark;
+    /* ── Typography tokens ─────────────────────────────────────────────── */
+    --text-body:        1.0625rem;  /* 17px  – main body */
+    --text-body-sm:     1rem;       /* 16px  – mobile body */
+    --text-secondary:   0.9375rem;  /* 15px  – secondary/meta descriptions */
+    --text-secondary-sm:0.90625rem; /* 14.5px*/
+    --text-lead:        1.125rem;   /* 18px  – lead/intro sentences */
+    --text-lead-sm:     1.0625rem;  /* 17px  */
+    --text-mono-sm:     0.75rem;    /* 12px  – mono labels */
+    --text-mono-xs:     0.6875rem;  /* 11px  – micro metadata */
+
+    --lh-body:   1.65;
+    --lh-tight:  1.45;
+    --lh-relaxed:1.75;
+
+    --prose-width: 68ch;
   }
 
   body {
@@ -22,39 +37,49 @@
   }
 }
 
-/* Subtle Technical Grid Backdrop */
+/* ═══════════════════════════════════════════════════════════════════════════
+   GLOBAL CONTINUOUS BACKGROUND GRID
+   Applied to the root wrapper so the grid is ONE layer under the entire page.
+   Individual sections use semi-transparent backgrounds layered on TOP of this.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.site-grid-bg {
+  background-color: #0C0B14;
+  background-image:
+    linear-gradient(to right,  rgba(169, 135, 245, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(169, 135, 245, 0.028) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-attachment: fixed;
+}
+
+/* Legacy grid classes — now additive overlays, not replacements */
 .bg-tech-grid {
-  background-size: 36px 36px;
-  background-image: 
-    linear-gradient(to right, rgba(169, 135, 245, 0.032) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(169, 135, 245, 0.032) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right,  rgba(169, 135, 245, 0.030) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(169, 135, 245, 0.030) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .bg-tech-blueprint {
+  background-image:
+    linear-gradient(to right,  rgba(121, 201, 223, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(121, 201, 223, 0.025) 1px, transparent 1px);
   background-size: 48px 48px;
-  background-image: 
-    linear-gradient(to right, rgba(121, 201, 223, 0.028) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(121, 201, 223, 0.028) 1px, transparent 1px);
 }
 
 .bg-tech-dots {
-  background-image: radial-gradient(rgba(169, 135, 245, 0.065) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(169, 135, 245, 0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
-/* Subtle Noise Texture Overlay */
+/* ── Noise Texture ──────────────────────────────────────────────────────── */
 .bg-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.022'/%3E%3C/svg%3E");
 }
 
-/* SVG Data-Flow Animation */
+/* ── SVG Data-Flow Animation ────────────────────────────────────────────── */
 @keyframes flowDash {
-  from {
-    stroke-dashoffset: 24;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+  from { stroke-dashoffset: 24; }
+  to   { stroke-dashoffset: 0;  }
 }
 
 .flow-animated {
@@ -67,117 +92,103 @@
   animation: flowDash 1.5s linear infinite reverse;
 }
 
-/* Atmospheric Glows */
+/* ── Atmospheric Glows ──────────────────────────────────────────────────── */
 .atmospheric-glow-violet {
-  background: radial-gradient(ellipse at 50% 10%, rgba(169, 135, 245, 0.09) 0%, rgba(23, 20, 38, 0) 65%);
+  background: radial-gradient(ellipse at 50% 10%, rgba(169, 135, 245, 0.08) 0%, rgba(23, 20, 38, 0) 65%);
 }
 
 .atmospheric-glow-cyan {
-  background: radial-gradient(ellipse at 80% 30%, rgba(121, 201, 223, 0.06) 0%, rgba(23, 20, 38, 0) 60%);
+  background: radial-gradient(ellipse at 80% 30%, rgba(121, 201, 223, 0.055) 0%, rgba(23, 20, 38, 0) 60%);
 }
 
 .atmospheric-glow-rose {
-  background: radial-gradient(ellipse at 20% 70%, rgba(215, 124, 203, 0.05) 0%, rgba(23, 20, 38, 0) 60%);
+  background: radial-gradient(ellipse at 20% 70%, rgba(215, 124, 203, 0.045) 0%, rgba(23, 20, 38, 0) 60%);
 }
 
-/* Editorial Typography & Accents */
+/* ═══════════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY SYSTEM
+   Use these classes instead of ad-hoc Tailwind size classes where possible.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Lead / intro paragraph — highest reading weight */
 .editorial-lead {
-  font-size: 1.0625rem; /* 17px */
+  font-size: var(--text-lead-sm);  /* 17px mobile */
   line-height: 1.6;
   color: #F4F0FA;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
-
 @media (min-width: 640px) {
-  .editorial-lead {
-    font-size: 1.1875rem; /* 19px */
-  }
+  .editorial-lead { font-size: var(--text-lead); /* 18px desktop */ }
 }
 
+/* Primary body text */
 .editorial-body {
-  font-size: 1rem; /* 16px */
-  line-height: 1.65;
+  font-size: var(--text-body-sm);  /* 16px mobile */
+  line-height: var(--lh-body);
   color: #CFC7DC;
 }
-
 @media (min-width: 640px) {
-  .editorial-body {
-    font-size: 1.0625rem; /* 17px */
-  }
+  .editorial-body { font-size: var(--text-body); /* 17px desktop */ }
 }
 
+/* Secondary / supporting descriptions */
 .editorial-secondary {
-  font-size: 0.90625rem; /* 14.5px */
+  font-size: var(--text-secondary-sm); /* 14.5px mobile */
   line-height: 1.6;
   color: #AAA2B9;
 }
-
 @media (min-width: 640px) {
-  .editorial-secondary {
-    font-size: 0.9375rem; /* 15px */
-  }
+  .editorial-secondary { font-size: var(--text-secondary); /* 15px desktop */ }
 }
 
-.editorial-body-prose {
-  max-width: 68ch;
-}
+/* Comfortable reading column width */
+.editorial-body-prose { max-width: var(--prose-width); }
 
+/* Monospace micro-label — section codes, metadata tags */
 .marginalia {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.75rem; /* 12px */
+  font-size: var(--text-mono-sm);   /* 12px */
   letter-spacing: 0.08em;
   color: #8E859E;
   text-transform: uppercase;
 }
 
-/* Editorial Borders & Lines */
-.editorial-border {
-  border: 1px solid rgba(169, 135, 245, 0.12);
-}
+/* ── Editorial Borders & Dividers ───────────────────────────────────────── */
+.editorial-border        { border: 1px solid rgba(169, 135, 245, 0.12); }
+.editorial-divider       { border-top: 1px solid rgba(169, 135, 245, 0.10); }
+.editorial-vertical-rule { border-left: 1px solid rgba(169, 135, 245, 0.10); }
 
-.editorial-divider {
-  border-top: 1px solid rgba(169, 135, 245, 0.1);
-}
-
-.editorial-vertical-rule {
-  border-left: 1px solid rgba(169, 135, 245, 0.1);
-}
-
-/* Subtle Interactive Lighting */
+/* ── Interactive Panel ──────────────────────────────────────────────────── */
 .interactive-panel {
   position: relative;
   background-color: rgba(23, 20, 38, 0.65);
   border: 1px solid rgba(169, 135, 245, 0.12);
   transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
-
 .interactive-panel:hover {
   border-color: rgba(169, 135, 245, 0.28);
   box-shadow: 0 12px 32px -12px rgba(12, 11, 20, 0.9), 0 0 16px -4px rgba(169, 135, 245, 0.06);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0C0B14;
-}
-
+/* ── Custom Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: #0C0B14; }
 ::-webkit-scrollbar-thumb {
   background: #27213A;
   border-radius: 4px;
   border: 2px solid #0C0B14;
 }
+::-webkit-scrollbar-thumb:hover { background: #3D355C; }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #3D355C;
+/* Hide scrollbar utility (mobile horizontal tabs) */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.scrollbar-none::-webkit-scrollbar { display: none; }
 
-/* Reduced motion preference */
+/* ── Reduced-Motion Overrides ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
@@ -185,7 +196,6 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .flow-animated, .flow-animated-reverse {
-    animation: none !important;
-  }
+  .flow-animated,
+  .flow-animated-reverse { animation: none !important; }
 }

@@ -13,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
 
   return (
     <footer className="bg-obsidian border-t border-surface-border py-16 text-muted-text font-mono text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-surface-border/50">
           

@@ -61,6 +61,13 @@ export const CloudInfrastructureSection: React.FC = () => {
 
   const handleSelectService = (id: string) => {
     setActiveServiceId(id);
+    // On mobile, scroll the telemetry panel into view after a brief delay
+    if (window.innerWidth < 1024) {
+      setTimeout(() => {
+        const el = document.getElementById('telemetry-readout');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 80);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent, id: string) => {
@@ -97,8 +104,8 @@ export const CloudInfrastructureSection: React.FC = () => {
   };
 
   return (
-    <section id="cloud" className="py-24 bg-midnight/35 relative border-b border-surface-border/40 bg-tech-grid">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="cloud" className="py-24 bg-midnight/35 relative border-b border-surface-border/40">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
@@ -106,7 +113,7 @@ export const CloudInfrastructureSection: React.FC = () => {
             <span className="font-mono text-xs sm:text-[13px] text-accent-rose tracking-[0.2em] uppercase block font-semibold">
               05 // CLOUD INFRASTRUCTURE & ACTIVE LEARNING
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-[36px] lg:text-[42px] font-bold text-primary-text tracking-tight">
               Systems Hosting & Operational Topologies
             </h2>
           </div>
@@ -175,10 +182,10 @@ export const CloudInfrastructureSection: React.FC = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             
-            {/* Left 4 Grouped Zones (7 cols on desktop) */}
-            <div className="lg:col-span-7 space-y-5" role="region" aria-label="AWS Infrastructure Zones">
+            {/* Left 4 Grouped Zones (7 cols on desktop, full width on mobile) */}
+            <div className="lg:col-span-7 space-y-4 sm:space-y-5" role="region" aria-label="AWS Infrastructure Zones">
               {infraZones.map((zone) => {
                 const zoneServices = AWS_EXPLORATION_SCOPE.filter(s => s.zone === zone.zoneId);
                 return (
@@ -236,7 +243,12 @@ export const CloudInfrastructureSection: React.FC = () => {
             </div>
 
             {/* Right: Service Inspector Telemetry Readout (5 cols on desktop, sticky) */}
-            <div className="lg:col-span-5 lg:sticky lg:top-24 w-full" id="telemetry-readout" aria-live="polite">
+            <div className="lg:col-span-5 lg:sticky lg:top-24 w-full order-2 lg:order-none" id="telemetry-readout" aria-live="polite">
+              {/* Mobile: Small hint bar above telemetry */}
+              <div className="lg:hidden mb-3 py-2 px-3 bg-accent-rose/10 border border-accent-rose/25 rounded-sm flex items-center gap-2 font-mono text-xs text-accent-rose">
+                <ChevronRight className="w-3.5 h-3.5 rotate-90 shrink-0" />
+                <span>Telemetry for selected service below</span>
+              </div>
               <div className="border border-accent-rose/50 bg-midnight/95 p-6 sm:p-7 space-y-5 rounded-sm relative shadow-2xl overflow-hidden backdrop-blur-md">
                 
                 {/* Subtle visual glow accent */}

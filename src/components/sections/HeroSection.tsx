@@ -23,7 +23,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
    * or a graceful architectural fallback if the physical photo is missing.
    */
   const renderPortrait = (isMobile: boolean = false) => (
-    <div className={`relative w-full ${isMobile ? 'max-w-[280px] sm:max-w-[320px]' : 'max-w-[380px] lg:max-w-[420px]'} mx-auto select-none`}>
+    <div className={`relative w-full ${isMobile ? 'max-w-[260px] sm:max-w-[300px]' : 'max-w-[380px] lg:max-w-[420px]'} mx-auto select-none`}>
       {/* Ambient background glow consistent with purple/cyan palette */}
       <div className="absolute -inset-4 bg-gradient-to-tr from-accent-violet/20 via-accent-cyan/15 to-transparent rounded-2xl blur-2xl pointer-events-none opacity-75" />
 
@@ -85,17 +85,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-[90vh] pt-32 pb-20 flex items-center justify-center overflow-hidden border-b border-surface-border/40"
+      className="relative pt-8 sm:pt-12 pb-14 lg:pt-32 lg:pb-20 lg:min-h-[90vh] lg:flex lg:items-center lg:justify-center overflow-hidden border-b border-surface-border/40"
     >
       {/* Background atmospheric lighting accents */}
       <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[650px] h-[450px] bg-accent-violet/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/3 right-1/4 w-[400px] h-[300px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           
           {/* Left Column: Identity & Editorial Story (7 cols) */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-5 lg:space-y-6">
             
             {/* System Status Label */}
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-surface/50 border border-accent-violet/30 text-[11px] font-mono text-muted-text shadow-[0_0_12px_rgba(169,135,245,0.15)]">
@@ -106,11 +106,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
             </div>
 
             {/* Main Typographic Hierarchy */}
-            <div className="space-y-2">
+            <div className="space-y-1.5 sm:space-y-2">
               <span className="font-mono text-xs sm:text-sm tracking-widest text-accent-cyan uppercase block font-semibold">
                 Gokulaselvan I
               </span>
-              <h1 className="font-heading text-[34px] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-primary-text leading-[1.12]">
+              <h1 className="font-heading text-[30px] xs:text-[34px] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-primary-text leading-[1.14]">
                 Building software.<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-violet via-accent-rose to-accent-cyan">
                   Thinking in systems.
@@ -119,12 +119,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
             </div>
 
             {/* Editorial Story Intro */}
-            <p className="text-[16px] sm:text-[17px] text-[#CFC7DC] max-w-xl leading-[1.65] font-sans">
+            <p className="text-[15.5px] sm:text-[17px] text-[#CFC7DC] max-w-xl leading-[1.6] sm:leading-[1.65] font-sans">
               I architect and implement software solutions across backend and full-stack development, with an interest in the engineering decisions that make systems dependable. Focusing on API boundaries, transactional integrity, agentic workflows, and cloud-native infrastructure.
             </p>
 
             {/* Focus Pillars */}
-            <div className="flex flex-wrap gap-2.5 pt-1.5 font-mono text-xs sm:text-[13px]">
+            <div className="flex flex-wrap gap-2 sm:gap-2.5 pt-0.5 sm:pt-1.5 font-mono text-xs sm:text-[13px]">
               <span className="px-3.5 py-1.5 border border-accent-violet/30 bg-surface/40 text-primary-text font-medium rounded-sm shadow-sm flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-violet" />
                 <span>ASP.NET Core 8 & Spring Boot 3</span>
@@ -140,7 +140,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
             </div>
 
             {/* Mobile Portrait Placement: Situated after introduction and pillars, before action buttons */}
-            <div className="lg:hidden py-4">
+            <div className="lg:hidden pt-3 pb-1">
               {renderPortrait(true)}
             </div>
 

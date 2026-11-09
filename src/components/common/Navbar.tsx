@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
             className="group flex items-center gap-2.5 focus:outline-none"
             aria-label="Gokulaselvan I Homepage"
           >
-            <div className="w-8 h-8 rounded bg-surface border border-surface-border flex items-center justify-center text-accent-violet font-mono font-bold text-sm group-hover:border-accent-violet transition-colors">
+            <div className="w-8 h-8 rounded bg-surface border border-surface-border flex items-center justify-center text-accent-violet font-mono font-bold text-sm group-hover:border-accent-violet group-hover:shadow-[0_0_12px_rgba(169,135,245,0.35)] transition-all">
               G.
             </div>
             <div className="flex flex-col">
@@ -90,9 +90,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
               <a
                 key={link.id}
                 href={link.href}
-                className={`px-3 py-1.5 rounded font-mono text-xs transition-colors ${
+                className={`px-3 py-1.5 rounded font-mono text-xs transition-all ${
                   activeSection === link.id
-                    ? 'text-accent-cyan bg-surface/50 border border-surface-border'
+                    ? 'text-accent-cyan bg-surface/60 border border-accent-cyan/40 shadow-[0_0_12px_rgba(121,201,223,0.22)] font-semibold'
                     : 'text-muted-text hover:text-primary-text hover:bg-surface/30'
                 }`}
               >

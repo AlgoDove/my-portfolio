@@ -62,7 +62,7 @@ export const ContactSection: React.FC = () => {
             <div className="pt-6 border-t border-surface-border/50 space-y-2 text-xs font-mono text-muted-dim">
               <div className="flex items-center gap-2">
                 <Terminal className="w-3.5 h-3.5 text-accent-violet" />
-                <span>PREFERRED CHANNEL: DIRECT EMAIL</span>
+                <span>PRIMARY CHANNEL: EMAIL</span>
               </div>
               <div>TYPICAL RESPONSE TIME: WITHIN 24 HOURS</div>
             </div>
@@ -73,14 +73,14 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-6 space-y-3.5 flex flex-col justify-between">
             
             {/* Email Channel */}
-            <div className="p-4 sm:p-5 border border-surface-border/80 bg-midnight/80 hover:border-accent-violet/40 transition-colors flex items-center justify-between gap-4 rounded-sm">
+            <div className="p-4 sm:p-5 border border-surface-border/80 bg-midnight/80 hover:border-accent-violet/50 hover:shadow-[0_0_16px_rgba(169,135,245,0.12)] transition-all flex items-center justify-between gap-4 rounded-sm">
               <div className="flex items-center gap-3.5 min-w-0">
                 <div className="p-3 rounded bg-surface/60 border border-surface-border text-accent-violet shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
                   <span className="font-mono text-[10.5px] text-muted-dim uppercase block tracking-wider font-semibold">
-                    ELECTRONIC MAIL
+                    EMAIL
                   </span>
                   <a
                     href={`mailto:${PERSONAL_INFO.email}`}
@@ -101,15 +101,15 @@ export const ContactSection: React.FC = () => {
               </button>
             </div>
 
-            {/* Phone Channel */}
-            <div className="p-4 sm:p-5 border border-surface-border/80 bg-midnight/80 hover:border-accent-violet/40 transition-colors flex items-center justify-between gap-4 rounded-sm">
+            {/* Phone Channel (Optional) */}
+            <div className="p-4 sm:p-5 border border-surface-border/80 bg-midnight/80 hover:border-accent-cyan/50 hover:shadow-[0_0_16px_rgba(121,201,223,0.12)] transition-all flex items-center justify-between gap-4 rounded-sm">
               <div className="flex items-center gap-3.5 min-w-0">
                 <div className="p-3 rounded bg-surface/60 border border-surface-border text-accent-cyan shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
                   <span className="font-mono text-[10.5px] text-muted-dim uppercase block tracking-wider font-semibold">
-                    TELEPHONE
+                    PHONE (OPTIONAL)
                   </span>
                   <a
                     href={`tel:${PERSONAL_INFO.phone.replace(/\s+/g, '')}`}
@@ -137,7 +137,7 @@ export const ContactSection: React.FC = () => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[52px] p-4 border border-surface-border/80 bg-midnight/80 hover:border-accent-cyan/40 transition-all flex items-center justify-between group rounded-sm"
+                className="min-h-[52px] p-4 border border-surface-border/80 bg-midnight/80 hover:border-accent-cyan/50 hover:shadow-[0_0_16px_rgba(121,201,223,0.12)] transition-all flex items-center justify-between group rounded-sm"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded bg-surface/60 border border-surface-border text-muted-text group-hover:text-primary-text transition-colors">
@@ -145,10 +145,10 @@ export const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <span className="font-mono text-[10px] text-muted-dim block uppercase font-semibold">
-                      CODEBASE
+                      GITHUB
                     </span>
                     <span className="font-mono text-xs sm:text-[13px] font-semibold text-primary-text">
-                      GitHub Profile
+                      github.com/AlgoDove
                     </span>
                   </div>
                 </div>
@@ -159,7 +159,7 @@ export const ContactSection: React.FC = () => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[52px] p-4 border border-surface-border/80 bg-midnight/80 hover:border-accent-violet/40 transition-all flex items-center justify-between group rounded-sm"
+                className="min-h-[52px] p-4 border border-surface-border/80 bg-midnight/80 hover:border-accent-violet/50 hover:shadow-[0_0_16px_rgba(169,135,245,0.12)] transition-all flex items-center justify-between group rounded-sm"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded bg-surface/60 border border-surface-border text-muted-text group-hover:text-accent-violet transition-colors">
@@ -167,10 +167,10 @@ export const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <span className="font-mono text-[10px] text-muted-dim block uppercase font-semibold">
-                      NETWORK
+                      LINKEDIN
                     </span>
                     <span className="font-mono text-xs sm:text-[13px] font-semibold text-primary-text">
-                      LinkedIn Profile
+                      Gokulaselvan I
                     </span>
                   </div>
                 </div>
@@ -180,12 +180,12 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Location Strip */}
-            <div className="p-3 border border-surface-border/60 bg-surface/20 flex items-center justify-between text-xs font-mono text-muted-dim">
+            <div className="p-3.5 border border-surface-border/60 bg-surface/20 flex items-center justify-between text-xs font-mono text-muted-dim rounded-sm">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-accent-rose" />
                 <span>LOCATION: COLOMBO, SRI LANKA</span>
               </div>
-              <span className="text-accent-cyan">UTC +05:30</span>
+              <span className="text-accent-cyan font-semibold">UTC +05:30</span>
             </div>
 
           </div>

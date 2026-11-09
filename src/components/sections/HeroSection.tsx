@@ -33,9 +33,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
           <div className="lg:col-span-7 space-y-6">
             
             {/* System Telemetry Label */}
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-surface/40 border border-surface-border text-[11px] font-mono text-muted-text">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-violet animate-pulse" />
-              <span className="text-primary-text font-semibold">SIGNAL // 01</span>
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-surface/50 border border-accent-violet/30 text-[11px] font-mono text-muted-text shadow-[0_0_12px_rgba(169,135,245,0.15)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-violet animate-pulse shadow-[0_0_8px_#A987F5]" />
+              <span className="text-primary-text font-semibold tracking-wider">SIGNAL // 01</span>
               <span className="text-muted-dim">•</span>
               <span>UNDERGRADUATE SOFTWARE ENGINEER</span>
             </div>
@@ -78,7 +78,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
             <div className="pt-3 flex flex-wrap items-center gap-3">
               <a
                 href="#work"
-                className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-mono text-xs sm:text-[12.5px] font-bold uppercase tracking-wider transition-all shadow-md rounded-sm"
+                className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 bg-accent-violet hover:bg-accent-violet/90 hover:shadow-[0_0_20px_rgba(169,135,245,0.4)] text-obsidian font-mono text-xs sm:text-[12.5px] font-bold uppercase tracking-wider transition-all shadow-md rounded-sm"
               >
                 <span>Explore My Work</span>
                 <ArrowDown className="w-4 h-4" />

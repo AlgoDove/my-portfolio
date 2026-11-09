@@ -13,6 +13,7 @@ import { Footer } from './components/common/Footer';
 import { CvModal } from './components/common/CvModal';
 import { ProjectModal } from './components/common/ProjectModal';
 import { CursorGlow } from './components/common/CursorGlow';
+import { SkillsTicker } from './components/common/SkillsTicker';
 import type { Project } from './types/portfolio';
 
 export function App() {
@@ -36,6 +37,7 @@ export function App() {
       {/* Main Single-Page Editorial Content */}
       <main id="main-content" className="relative z-10">
         <HeroSection onOpenCvModal={() => setCvModalOpen(true)} />
+        <SkillsTicker />
         <AboutSection />
         <SelectedWorkSection onSelectProject={(project) => setActiveProject(project)} />
         <ExperienceSection />

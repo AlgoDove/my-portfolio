@@ -226,7 +226,7 @@ export const CloudInfrastructureSection: React.FC = () => {
                             aria-label={`Inspect ${svc.name} telemetry`}
                             className={`min-h-[44px] px-4 py-2.5 font-mono text-xs sm:text-[12.5px] transition-all flex items-center gap-2 rounded-sm select-none outline-none focus-visible:ring-2 focus-visible:ring-accent-rose ${
                               isSelected
-                                ? 'bg-accent-rose text-obsidian font-bold shadow-lg ring-1 ring-accent-rose transform scale-[1.02]'
+                                ? 'bg-accent-rose text-obsidian font-bold shadow-[0_0_16px_rgba(215,124,203,0.45)] ring-1 ring-accent-rose transform scale-[1.02]'
                                 : 'bg-surface/60 border border-surface-border text-primary-text hover:text-white hover:border-accent-rose/60 hover:bg-surface/80'
                             }`}
                           >
@@ -249,7 +249,7 @@ export const CloudInfrastructureSection: React.FC = () => {
                 <ChevronRight className="w-3.5 h-3.5 rotate-90 shrink-0" />
                 <span>Telemetry for selected service below</span>
               </div>
-              <div className="border border-accent-rose/50 bg-midnight/95 p-6 sm:p-7 space-y-5 rounded-sm relative shadow-2xl overflow-hidden backdrop-blur-md">
+              <div className="border border-accent-rose/50 bg-midnight/95 p-6 sm:p-7 space-y-5 rounded-sm relative shadow-[0_0_30px_-5px_rgba(215,124,203,0.18)] overflow-hidden backdrop-blur-md">
                 
                 {/* Subtle visual glow accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent-rose/10 rounded-full blur-2xl pointer-events-none" />

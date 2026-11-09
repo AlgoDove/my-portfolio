@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Compass, Layers, ShieldCheck, Terminal, MapPin } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
 export const AboutSection: React.FC = () => {
-  const [profileImgFailed, setProfileImgFailed] = useState(false);
 
   return (
     <section id="about" className="py-24 bg-midnight/30 relative border-b border-surface-border/40 scroll-mt-16">
@@ -111,57 +110,43 @@ export const AboutSection: React.FC = () => {
 
           </div>
 
-          {/* Right: Technical Identity Dossier (5 cols) */}
+          {/* Right: Technical Engineer Profile (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             
             <div className="relative border border-surface-border bg-midnight/70 p-5 sm:p-7 backdrop-blur-sm rounded-sm shadow-lg">
               
-              {/* Dossier Header Line */}
+              {/* Profile Header Line */}
               <div className="flex items-center justify-between pb-3 border-b border-surface-border/50 text-[10px] font-mono text-muted-dim">
-                <span>IDENTITY DOSSIER</span>
-                <span className="text-accent-cyan flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
-                  VERIFIED PROFILE
-                </span>
+                <span>ENGINEER PROFILE</span>
+                <span className="text-accent-cyan">COLOMBO, LK</span>
               </div>
 
-              {/* Portrait Frame / Typographic Treatment */}
-              <div className="relative aspect-[4/4.5] overflow-hidden border border-surface-border/60 bg-obsidian my-4 flex items-center justify-center">
-                {!profileImgFailed ? (
-                  <img
-                    src="/images/profile/portrait.jpg"
-                    alt="Gokulaselvan I Portrait"
-                    onError={() => setProfileImgFailed(true)}
-                    className="w-full h-full object-cover object-center"
-                  />
-                ) : (
-                  <div className="w-full h-full p-6 flex flex-col justify-between bg-tech-blueprint text-left select-none">
-                    <div className="flex justify-between text-[10px] font-mono text-muted-dim border-b border-surface-border/40 pb-2">
-                      <span>NOCTURNE // ENGINEER SPEC</span>
-                      <span className="text-accent-violet">075874237</span>
-                    </div>
+              {/* Profile Summary Block */}
+              <div className="w-full p-5 sm:p-6 flex flex-col justify-between bg-surface/30 border border-surface-border/50 rounded select-none my-4">
+                <div className="flex justify-between text-[10px] font-mono text-muted-dim border-b border-surface-border/40 pb-2">
+                  <span>SUMMARY</span>
+                  <span className="text-accent-violet">{PERSONAL_INFO.wordmark}</span>
+                </div>
 
-                    <div className="my-auto space-y-1.5">
-                      <span className="font-mono text-[11px] text-accent-cyan uppercase tracking-widest block">
-                        GOKULASELVAN I
-                      </span>
-                      <span className="font-heading text-3xl font-extrabold text-primary-text block tracking-tight">
-                        GOKUL.
-                      </span>
-                      <p className="text-xs text-muted-text pt-2 leading-relaxed max-w-xs font-sans">
-                        Undergraduate Software Engineer focused on backend architecture and dependable systems.
-                      </p>
-                    </div>
+                <div className="my-4 space-y-1.5">
+                  <span className="font-mono text-[11px] text-accent-cyan uppercase tracking-widest block">
+                    {PERSONAL_INFO.name}
+                  </span>
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-primary-text block tracking-tight">
+                    {PERSONAL_INFO.wordmark}
+                  </span>
+                  <p className="text-xs text-muted-text pt-2 leading-relaxed max-w-xs font-sans">
+                    Undergraduate Software Engineer focused on backend architecture and dependable systems.
+                  </p>
+                </div>
 
-                    <div className="text-[10px] font-mono text-muted-dim pt-2 border-t border-surface-border/40 flex justify-between">
-                      <span>COLOMBO, SRI LANKA</span>
-                      <span>SLIIT / JSC</span>
-                    </div>
-                  </div>
-                )}
+                <div className="text-[10px] font-mono text-muted-dim pt-2 border-t border-surface-border/40 flex justify-between">
+                  <span>COLOMBO, SRI LANKA</span>
+                  <span>SLIIT / JSC</span>
+                </div>
               </div>
 
-              {/* Dossier Metadata Items */}
+              {/* Profile Metadata Items */}
               <div className="space-y-2 text-xs font-mono pt-1">
                 <div className="flex justify-between py-1 border-b border-surface-border/40">
                   <span className="text-muted-dim">NAME:</span>

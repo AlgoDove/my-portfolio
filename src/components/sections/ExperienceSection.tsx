@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MapPin, ShieldAlert, FileCode2, Terminal, Users } from 'lucide-react';
+import { Calendar, MapPin, FileCode2, Terminal, Users } from 'lucide-react';
 import { EXPERIENCE_DATA } from '../../data/portfolioData';
 
 export const ExperienceSection: React.FC = () => {
@@ -66,12 +66,8 @@ export const ExperienceSection: React.FC = () => {
               <span>STATION: {EXPERIENCE_DATA.location}</span>
             </div>
 
-            {/* Credible Scope Framing */}
-            <div className="p-5 sm:p-6 border border-surface-border/70 bg-surface/25 text-xs text-muted-text space-y-2 rounded-sm shadow-sm">
-              <div className="flex items-center gap-2 font-mono text-xs text-accent-violet font-semibold uppercase">
-                <ShieldAlert className="w-4 h-4" />
-                <span>Credible Technical Framing</span>
-              </div>
+            {/* Operational Context Scope */}
+            <div className="p-5 sm:p-6 border border-surface-border/70 bg-surface/25 text-xs text-muted-text rounded-sm shadow-sm">
               <p className="leading-[1.6] font-sans text-xs sm:text-[13px] text-muted-text">
                 {EXPERIENCE_DATA.disclaimer}
               </p>
@@ -120,10 +116,9 @@ export const ExperienceSection: React.FC = () => {
                   {EXPERIENCE_DATA.technicalScope.map((scope, sIdx) => (
                     <div
                       key={sIdx}
-                      className="px-3 py-1.5 border border-surface-border/60 bg-surface/30 font-mono text-xs text-primary-text flex items-center justify-between"
+                      className="px-3 py-1.5 border border-surface-border/60 bg-surface/30 font-mono text-xs text-primary-text flex items-center"
                     >
                       <span>{scope}</span>
-                      <span className="text-[9.5px] text-accent-cyan">VERIFIED</span>
                     </div>
                   ))}
                 </div>

@@ -238,7 +238,7 @@ export const ProjectSchematic: React.FC<ProjectSchematicProps> = ({
           <div className="absolute bottom-2 left-3 flex items-center gap-2">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
             <span className="font-mono text-[10px] text-muted-text uppercase tracking-wider">
-              Verified Architecture
+              System Architecture
             </span>
           </div>
         </div>
@@ -300,8 +300,8 @@ export const ProjectSchematic: React.FC<ProjectSchematicProps> = ({
 
         {/* Footer metadata line */}
         <div className="relative z-10 flex items-center justify-between border-t border-surface-border/60 pt-2 mt-2 text-[9.5px] text-muted-dim">
-          <span>ARCHITECTURAL VECTOR SPEC</span>
-          <span className="text-accent-violet">VERIFIED BOUNDARY</span>
+          <span>SYSTEM ARCHITECTURE</span>
+          <span className="text-accent-violet">TOPOLOGY SPEC</span>
         </div>
       </div>
 

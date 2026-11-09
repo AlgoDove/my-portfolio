@@ -24,7 +24,7 @@ export const BeyondEngineeringSection: React.FC = () => {
             </h2>
           </div>
           <div className="font-mono text-xs text-muted-dim tracking-wider uppercase">
-            CONFIRMED PERSONAL PURSUITS
+            PERSONAL PURSUITS
           </div>
         </div>
 

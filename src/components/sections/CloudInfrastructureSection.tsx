@@ -129,7 +129,7 @@ export const CloudInfrastructureSection: React.FC = () => {
           <div className="lg:col-span-6 space-y-4">
             <div className="flex items-center gap-2 font-mono text-xs sm:text-[13px] text-primary-text font-semibold uppercase">
               <Compass className="w-4 h-4 text-accent-rose" />
-              <span>Honest Technical Scope & Stage Distinctions</span>
+              <span>Production Experience vs. Active Labs</span>
             </div>
             
             <p className="editorial-body editorial-body-prose leading-relaxed">

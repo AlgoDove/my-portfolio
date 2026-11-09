@@ -167,9 +167,6 @@ export const TechnicalProfileSection: React.FC = () => {
                         <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${currentAccent.dot}`} />
                         <span>{skill.name}</span>
                       </span>
-                      <span className="font-mono text-[9px] text-muted-dim tracking-wider uppercase cursor-default select-text">
-                        VERIFIED
-                      </span>
                     </div>
 
                     <div className="sm:w-2/3 text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">

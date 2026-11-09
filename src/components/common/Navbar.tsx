@@ -102,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
             ))}
           </nav>
 
-          {/* Right Action: Available Status & Download CV Button */}
+          {/* Right Action: Available Status & Download Résumé Button */}
           <div className="hidden sm:flex items-center gap-3">
             <div className="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface/40 border border-surface-border font-mono text-[11px] text-muted-text">
               <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
@@ -114,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-surface hover:bg-surface-elevated border border-surface-border text-primary-text font-mono text-xs font-medium hover:border-accent-violet transition-all"
             >
               <Download className="w-3.5 h-3.5 text-accent-violet" />
-              <span>Download CV</span>
+              <span>Download Résumé (PDF)</span>
             </button>
           </div>
 
@@ -123,8 +123,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
             <button
               onClick={onOpenCvModal}
               className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded bg-surface/60 border border-surface-border text-accent-violet"
-              title="Download CV"
-              aria-label="Download CV"
+              title="Download Résumé (PDF)"
+              aria-label="Download Résumé (PDF)"
             >
               <Download className="w-4 h-4" />
             </button>
@@ -173,7 +173,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
                 className="w-full min-h-[44px] flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-mono text-xs sm:text-[13px] font-bold shadow-md"
               >
                 <Download className="w-4 h-4" />
-                <span>Download CV (.pdf)</span>
+                <span>Download Résumé (PDF)</span>
               </button>
             </div>
           </div>

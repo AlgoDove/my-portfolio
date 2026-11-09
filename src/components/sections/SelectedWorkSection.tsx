@@ -30,7 +30,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
             </h2>
           </div>
           <p className="font-mono text-xs text-muted-dim max-w-sm text-left sm:text-right tracking-wide">
-            ARCHITECTURAL SCHEMATICS, TRADE-OFFS & VERIFIED REPOSITORY EVIDENCE
+            ARCHITECTURAL SCHEMATICS, TRADE-OFFS & REPOSITORY EVIDENCE
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
                 <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
                 <span className="text-primary-text font-semibold">SYSTEM TOPOLOGY // MODULAR MONOLITH PIPELINE</span>
               </div>
-              <span className="text-accent-cyan font-semibold">VERIFIED: 217 PASSING XUNIT TESTS</span>
+              <span className="text-accent-cyan font-semibold">217 PASSING XUNIT TESTS</span>
             </div>
 
             <ProjectSchematic
@@ -189,7 +189,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
         <div className="space-y-24">
           
           <div className="flex items-center gap-3 pb-2 border-b border-surface-border/40 font-mono text-xs text-muted-dim tracking-wider uppercase">
-            <span>VERIFIED SPECIALIZED SYSTEMS</span>
+            <span>SPECIALIZED SYSTEMS</span>
             <div className="flex-1 border-b border-surface-border/30" />
             <span>03 DISTINCT ARCHITECTURES</span>
           </div>

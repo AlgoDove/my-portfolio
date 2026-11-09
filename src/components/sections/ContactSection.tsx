@@ -27,7 +27,7 @@ export const ContactSection: React.FC = () => {
             </h2>
           </div>
           <div className="font-mono text-xs text-muted-dim tracking-wider uppercase">
-            TRANSPARENT COMMUNICATIONS
+            GET IN TOUCH
           </div>
         </div>
 

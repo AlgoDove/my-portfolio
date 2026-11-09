@@ -26,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
               <span className="text-[10px] text-muted-dim">// NOCTURNE / SIGNAL</span>
             </div>
             <p className="font-sans text-xs sm:text-sm text-muted-dim max-w-sm leading-relaxed">
-              Software engineering focused on architectural clarity, dependable backend systems, data persistence, and verified implementation.
+              Software engineering focused on architectural clarity, dependable backend systems, data persistence, and rigorous implementation.
             </p>
             <div className="text-[11px] text-muted-dim">
               Based in Colombo, Sri Lanka • UTC +05:30
@@ -53,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
                 onClick={onOpenCvModal}
                 className="text-left text-accent-violet hover:underline flex items-center gap-1 text-[11px]"
               >
-                <span>Résumé (.pdf)</span>
+                <span>Download Résumé (PDF)</span>
                 <Download className="w-3 h-3" />
               </button>
             </div>

@@ -54,7 +54,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
           </div>
           <div>
             <h3 id="cv-modal-title" className="font-heading text-lg font-semibold text-primary-text">
-              Curriculum Vitae / Résumé
+              Download Résumé (PDF)
             </h3>
             <p className="font-mono text-xs text-muted-text">
               Gokulaselvan I — Software Engineer
@@ -65,17 +65,13 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
         {/* Content Details */}
         <div className="space-y-4 text-sm text-muted-text">
           <p>
-            You can download the verified engineering résumé detailing backend architecture, academic achievements at SLIIT (WGPA 3.85), and technical internship work at the Sri Lanka Judicial Service Commission.
+            Download the engineering résumé for Gokulaselvan I, covering backend architecture, academic record at SLIIT (WGPA 3.85), and technical internship work at the Sri Lanka Judicial Service Commission.
           </p>
 
           <div className="p-3.5 rounded bg-surface/50 border border-surface-border text-xs font-mono space-y-1.5">
             <div className="flex items-center justify-between text-muted-dim">
               <span>TARGET FILE:</span>
               <span className="text-accent-cyan">{PERSONAL_INFO.cvFilename}</span>
-            </div>
-            <div className="flex items-center justify-between text-muted-dim">
-              <span>TARGET DIRECTORY:</span>
-              <span>/public/files/</span>
             </div>
             <div className="flex items-center justify-between text-muted-dim">
               <span>FORMAT:</span>
@@ -90,7 +86,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-semibold transition-all shadow-md font-mono text-xs uppercase tracking-wider"
             >
               <Download className="w-4 h-4" />
-              Download Résumé
+              Download Résumé (PDF)
             </button>
             <button
               onClick={copyPath}

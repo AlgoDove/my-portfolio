@@ -14,6 +14,7 @@ import { CvModal } from './components/common/CvModal';
 import { ProjectModal } from './components/common/ProjectModal';
 import { CursorGlow } from './components/common/CursorGlow';
 import { SkillsTicker } from './components/common/SkillsTicker';
+import { TouchSignalRipple } from './components/common/TouchSignalRipple';
 import type { Project } from './types/portfolio';
 
 export function App() {
@@ -30,6 +31,9 @@ export function App() {
 
       {/* Background cursor spotlight — stays behind everything */}
       <CursorGlow />
+
+      {/* Mobile touch-reactive orbital signal ripple */}
+      <TouchSignalRipple />
 
       {/* Editorial Navigation */}
       <Navbar onOpenCvModal={() => setCvModalOpen(true)} />

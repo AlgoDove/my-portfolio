@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['about', 'work', 'experience', 'stack', 'cloud', 'education', 'contact'];
+      const sections = ['about', 'work', 'experience', 'stack', 'cloud', 'education', 'beyond', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (const section of sections) {
@@ -52,7 +52,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
     { label: '04. Stack', href: '#stack', id: 'stack' },
     { label: '05. Cloud', href: '#cloud', id: 'cloud' },
     { label: '06. Academic', href: '#education', id: 'education' },
-    { label: '07. Contact', href: '#contact', id: 'contact' },
+    { label: '07. Beyond', href: '#beyond', id: 'beyond' },
+    { label: '08. Contact', href: '#contact', id: 'contact' },
   ];
 
   return (

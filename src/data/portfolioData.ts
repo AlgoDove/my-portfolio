@@ -6,7 +6,6 @@ export const PERSONAL_INFO = {
   title: 'Software Engineer',
   location: 'Colombo, Sri Lanka',
   email: 'algodove77@gmail.com',
-  phone: '+94 70 368 1816',
   github: 'https://github.com/AlgoDove',
   linkedin: 'https://linkedin.com/in/gokul-indhreshan-075874237/',
   headline: 'Building software. Thinking in systems.',

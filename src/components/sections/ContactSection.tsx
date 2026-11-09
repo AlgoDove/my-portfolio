@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Copy, Check, ArrowUpRight, Terminal } from 'lucide-react';
+import { Mail, MapPin, Copy, Check, ArrowUpRight, Terminal } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from '../common/Icons';
 
 export const ContactSection: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const copyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
-  const copyPhone = () => {
-    navigator.clipboard.writeText(PERSONAL_INFO.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   return (
@@ -98,35 +91,6 @@ export const ContactSection: React.FC = () => {
                 aria-label="Copy email address"
               >
                 {copiedEmail ? <Check className="w-4 h-4 text-accent-cyan" /> : <Copy className="w-4 h-4" />}
-              </button>
-            </div>
-
-            {/* Phone Channel (Optional) */}
-            <div className="p-4 sm:p-5 border border-surface-border/80 bg-midnight/80 hover:border-accent-cyan/50 hover:shadow-[0_0_16px_rgba(121,201,223,0.12)] transition-all flex items-center justify-between gap-4 rounded-sm">
-              <div className="flex items-center gap-3.5 min-w-0">
-                <div className="p-3 rounded bg-surface/60 border border-surface-border text-accent-cyan shrink-0">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div className="min-w-0">
-                  <span className="font-mono text-[10.5px] text-muted-dim uppercase block tracking-wider font-semibold">
-                    PHONE (OPTIONAL)
-                  </span>
-                  <a
-                    href={`tel:${PERSONAL_INFO.phone.replace(/\s+/g, '')}`}
-                    className="font-mono text-xs sm:text-sm font-semibold text-primary-text hover:text-accent-cyan transition-colors truncate block"
-                  >
-                    {PERSONAL_INFO.phone}
-                  </a>
-                </div>
-              </div>
-
-              <button
-                onClick={copyPhone}
-                className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 rounded bg-surface/60 hover:bg-surface border border-surface-border text-muted-text hover:text-primary-text transition-colors shrink-0"
-                title="Copy phone to clipboard"
-                aria-label="Copy phone number"
-              >
-                {copiedPhone ? <Check className="w-4 h-4 text-accent-cyan" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
 

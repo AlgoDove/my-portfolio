@@ -45,10 +45,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
               <a href="#stack" className="hover:text-accent-cyan transition-colors">04. Technical Stack</a>
               <a href="#cloud" className="hover:text-accent-cyan transition-colors">05. Cloud Scope</a>
               <a href="#education" className="hover:text-accent-cyan transition-colors">06. Education</a>
-              <a href="#contact" className="hover:text-accent-cyan transition-colors">07. Contact</a>
+              <a href="#beyond" className="hover:text-accent-cyan transition-colors">07. Beyond Engineering</a>
+              <a href="#contact" className="hover:text-accent-cyan transition-colors">08. Contact</a>
+            </div>
+            <div className="pt-1">
               <button
                 onClick={onOpenCvModal}
-                className="text-left text-accent-violet hover:underline flex items-center gap-1"
+                className="text-left text-accent-violet hover:underline flex items-center gap-1 text-[11px]"
               >
                 <span>Résumé (.pdf)</span>
                 <Download className="w-3 h-3" />

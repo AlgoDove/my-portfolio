@@ -164,7 +164,7 @@ export const AboutSection: React.FC = () => {
               {/* Dossier Metadata Items */}
               <div className="space-y-2 text-xs font-mono pt-1">
                 <div className="flex justify-between py-1 border-b border-surface-border/40">
-                  <span className="text-muted-dim">LEGAL NAME:</span>
+                  <span className="text-muted-dim">NAME:</span>
                   <span className="text-primary-text font-semibold">{PERSONAL_INFO.name}</span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-surface-border/40">

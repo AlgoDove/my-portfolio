@@ -31,9 +31,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
       }
     };
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { label: '01. Philosophy', href: '#about', id: 'about' },
@@ -107,34 +117,35 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
             </button>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
-          <div className="flex items-center gap-2 sm:hidden">
+          {/* Mobile Hamburger Toggle - 44px tap targets */}
+          <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={onOpenCvModal}
-              className="p-2 rounded bg-surface border border-surface-border text-accent-violet"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded bg-surface/60 border border-surface-border text-accent-violet"
               title="Download CV"
+              aria-label="Download CV"
             >
               <Download className="w-4 h-4" />
             </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded bg-surface border border-surface-border text-muted-text hover:text-primary-text"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded bg-surface/60 border border-surface-border text-muted-text hover:text-primary-text"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-accent-rose" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 p-4 bg-midnight/95 backdrop-blur-xl border border-surface-border rounded-lg space-y-2 animate-in slide-in-from-top-2 duration-200">
+          <div className="lg:hidden mt-3 p-4 bg-midnight/95 backdrop-blur-xl border border-surface-border rounded-lg space-y-2 animate-in slide-in-from-top-2 duration-200 shadow-2xl">
             <div className="flex items-center justify-between pb-2 border-b border-surface-border text-xs font-mono text-muted-dim">
               <span>SECTION NAVIGATION</span>
               <span className="text-accent-cyan flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
                 ONLINE
               </span>
             </div>
@@ -143,10 +154,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
                 key={link.id}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded font-mono text-xs transition-colors ${
+                className={`min-h-[44px] flex items-center px-4 py-2.5 rounded font-mono text-xs sm:text-[13px] transition-colors ${
                   activeSection === link.id
-                    ? 'text-accent-cyan bg-surface/80 border border-surface-border'
-                    : 'text-muted-text hover:text-primary-text hover:bg-surface/30'
+                    ? 'text-accent-cyan bg-surface border border-accent-cyan/30 font-semibold'
+                    : 'text-muted-text hover:text-primary-text hover:bg-surface/50'
                 }`}
               >
                 {link.label}
@@ -158,10 +169,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
                   setMobileMenuOpen(false);
                   onOpenCvModal();
                 }}
-                className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-accent-violet text-obsidian font-mono text-xs font-semibold"
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-mono text-xs sm:text-[13px] font-bold shadow-md"
               >
                 <Download className="w-4 h-4" />
-                Download CV (.pdf)
+                <span>Download CV (.pdf)</span>
               </button>
             </div>
           </div>

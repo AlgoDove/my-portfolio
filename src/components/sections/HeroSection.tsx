@@ -42,10 +42,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
 
             {/* Main Typographic Hierarchy */}
             <div className="space-y-2">
-              <span className="font-mono text-xs tracking-widest text-accent-cyan uppercase block">
+              <span className="font-mono text-xs sm:text-sm tracking-widest text-accent-cyan uppercase block font-semibold">
                 Gokulaselvan I
               </span>
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-primary-text leading-[1.12]">
+              <h1 className="font-heading text-[34px] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-primary-text leading-[1.12]">
                 Building software.<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-violet via-accent-rose to-accent-cyan">
                   Thinking in systems.
@@ -53,29 +53,32 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
               </h1>
             </div>
 
-            {/* Editorial Story Intro (Comfortable 15px reading size, max-w-xl) */}
-            <p className="text-[14.5px] sm:text-[15.5px] text-muted-text max-w-xl leading-[1.75] font-sans">
+            {/* Editorial Story Intro (Comfortable 16-17px reading size, max-w-xl) */}
+            <p className="text-[16px] sm:text-[17px] text-[#CFC7DC] max-w-xl leading-[1.65] font-sans">
               I architect and implement software solutions across backend and full-stack development, with an interest in the engineering decisions that make systems dependable. Focusing on API boundaries, transactional integrity, agentic workflows, and cloud-native infrastructure.
             </p>
 
-            {/* Focus Pillars (Restrained Technical Badges) */}
-            <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
-              <span className="px-2.5 py-1 border border-surface-border/80 bg-surface/30 text-primary-text">
-                ASP.NET Core 8 & Spring Boot 3
+            {/* Focus Pillars (Substantial Technical Highlights, not tiny footnotes) */}
+            <div className="flex flex-wrap gap-2.5 pt-1.5 font-mono text-xs sm:text-[13px]">
+              <span className="px-3.5 py-1.5 border border-accent-violet/30 bg-surface/40 text-primary-text font-medium rounded-sm shadow-sm flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-violet" />
+                <span>ASP.NET Core 8 & Spring Boot 3</span>
               </span>
-              <span className="px-2.5 py-1 border border-surface-border/80 bg-surface/30 text-primary-text">
-                PostgreSQL & Data Integrity
+              <span className="px-3.5 py-1.5 border border-accent-cyan/30 bg-surface/40 text-primary-text font-medium rounded-sm shadow-sm flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan" />
+                <span>PostgreSQL & Data Integrity</span>
               </span>
-              <span className="px-2.5 py-1 border border-surface-border/80 bg-surface/30 text-primary-text">
-                Agentic AI & Deterministic Guardrails
+              <span className="px-3.5 py-1.5 border border-accent-rose/30 bg-surface/40 text-primary-text font-medium rounded-sm shadow-sm flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-rose" />
+                <span>Agentic AI & Deterministic Guardrails</span>
               </span>
             </div>
 
-            {/* Primary Action Buttons */}
+            {/* Primary Action Buttons - Minimum 44px touch targets */}
             <div className="pt-3 flex flex-wrap items-center gap-3">
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-md"
+                className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-mono text-xs sm:text-[12.5px] font-bold uppercase tracking-wider transition-all shadow-md rounded-sm"
               >
                 <span>Explore My Work</span>
                 <ArrowDown className="w-4 h-4" />
@@ -83,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
 
               <button
                 onClick={onOpenCvModal}
-                className="inline-flex items-center gap-2 px-4 py-2.5 border border-surface-border bg-surface/50 hover:bg-surface text-primary-text font-mono text-xs tracking-wider transition-colors"
+                className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 border border-surface-border bg-surface/50 hover:bg-surface text-primary-text font-mono text-xs sm:text-[12.5px] tracking-wider transition-colors rounded-sm"
               >
                 <Download className="w-4 h-4 text-accent-cyan" />
                 <span>Download CV</span>
@@ -91,7 +94,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
 
               <button
                 onClick={copyEmail}
-                className="inline-flex items-center gap-2 px-3.5 py-2.5 border border-surface-border/80 hover:bg-surface/40 text-muted-text hover:text-primary-text font-mono text-xs transition-colors"
+                className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 border border-surface-border/80 hover:bg-surface/40 text-muted-text hover:text-primary-text font-mono text-xs sm:text-[12.5px] transition-colors rounded-sm"
                 title="Click to copy email address"
               >
                 {copiedEmail ? <Check className="w-4 h-4 text-accent-cyan" /> : <Mail className="w-4 h-4 text-accent-rose" />}

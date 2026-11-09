@@ -34,10 +34,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         aria-modal="true"
         aria-labelledby="project-modal-title"
       >
-        {/* Close Button */}
+        {/* Close Button - 44px tap target */}
         <button
           onClick={onClose}
-          className="sticky top-0 float-right -mt-2 -mr-2 p-2 rounded-full text-muted-text hover:text-primary-text hover:bg-surface transition-colors z-20 bg-midnight/90"
+          className="sticky top-0 float-right -mt-2 -mr-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full text-muted-text hover:text-primary-text hover:bg-surface transition-colors z-20 bg-midnight/90"
           aria-label="Close dialog"
         >
           <X className="w-5 h-5" />
@@ -162,8 +162,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               <Layers className="w-5 h-5 text-accent-violet" />
               <h3>System Boundaries & Layering</h3>
             </div>
-            <div className="border border-surface-border rounded overflow-hidden">
-              <table className="w-full text-left text-xs font-mono">
+            <div className="border border-surface-border rounded overflow-x-auto">
+              <table className="w-full text-left text-xs font-mono min-w-[500px]">
                 <thead className="bg-surface text-muted-text border-b border-surface-border">
                   <tr>
                     <th className="p-3">Layer</th>
@@ -203,22 +203,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
         </div>
 
-        {/* External Actions */}
+        {/* External Actions - 44px tap targets */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-surface-border">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded bg-surface hover:bg-surface-elevated border border-surface-border text-primary-text font-mono text-xs tracking-wide transition-colors"
+            className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 rounded bg-surface hover:bg-surface-elevated border border-surface-border text-primary-text font-mono text-xs sm:text-[12.5px] tracking-wide transition-colors"
           >
             <GithubIcon className="w-4 h-4 text-accent-violet" />
-            Inspect GitHub Repository
+            <span>Inspect GitHub Repository</span>
             <ExternalLink className="w-3.5 h-3.5 text-muted-dim" />
           </a>
 
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded text-muted-text hover:text-primary-text font-mono text-xs transition-colors"
+            className="min-h-[44px] px-4 py-2.5 rounded text-muted-text hover:text-primary-text font-mono text-xs sm:text-[12.5px] transition-colors"
           >
             Close Inspector
           </button>

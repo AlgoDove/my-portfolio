@@ -16,14 +16,14 @@ export const BeyondEngineeringSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-4 border-b border-surface-border/50 gap-2">
           <div className="space-y-1">
-            <span className="font-mono text-[11px] text-accent-cyan tracking-[0.2em] uppercase block">
+            <span className="font-mono text-xs sm:text-[13px] text-accent-cyan tracking-[0.2em] uppercase block font-semibold">
               07 // BEYOND ENGINEERING
             </span>
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[38px] font-bold text-primary-text tracking-tight">
               Discipline, Inquiry & Narrative Craft
             </h2>
           </div>
-          <div className="font-mono text-[11px] text-muted-dim">
+          <div className="font-mono text-xs text-muted-dim tracking-wider uppercase">
             CONFIRMED PERSONAL PURSUITS
           </div>
         </div>
@@ -33,18 +33,18 @@ export const BeyondEngineeringSection: React.FC = () => {
           {BEYOND_ENGINEERING.map((item, idx) => (
             <div
               key={idx}
-              className="border-l border-surface-border/80 pl-5 space-y-3"
+              className="border-l-2 border-accent-violet/50 pl-5 space-y-3 py-1"
             >
               <div className="flex items-center gap-2.5">
-                <div className="p-1.5 rounded bg-surface/50 border border-surface-border/60">
+                <div className="p-1.5 rounded bg-surface/60 border border-surface-border">
                   {getIcon(item.title)}
                 </div>
-                <h3 className="font-heading text-base font-bold text-primary-text">
+                <h3 className="font-heading text-base sm:text-lg font-bold text-primary-text">
                   {item.title}
                 </h3>
               </div>
 
-              <p className="editorial-body text-xs sm:text-[13px] leading-relaxed">
+              <p className="text-xs sm:text-[13.5px] text-muted-text leading-relaxed font-sans">
                 {item.description}
               </p>
             </div>

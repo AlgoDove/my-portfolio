@@ -10,14 +10,14 @@ export const ExperienceSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
           <div className="space-y-1">
-            <span className="font-mono text-[11px] text-accent-violet tracking-[0.2em] uppercase block">
+            <span className="font-mono text-xs sm:text-[13px] text-accent-violet tracking-[0.2em] uppercase block font-semibold">
               03 // OPERATIONAL ENGINEERING
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
               Where Software Meets Real Operations
             </h2>
           </div>
-          <div className="font-mono text-[11px] text-muted-dim">
+          <div className="font-mono text-xs text-muted-dim tracking-wider uppercase">
             JUDICIAL ADMINISTRATION DIGITALISATION
           </div>
         </div>
@@ -30,11 +30,11 @@ export const ExperienceSection: React.FC = () => {
             
             {/* Status & Dates */}
             <div className="flex flex-wrap items-center gap-3">
-              <span className="font-mono text-[10px] text-accent-cyan px-2 py-0.5 rounded bg-accent-cyan/10 border border-accent-cyan/25 font-semibold flex items-center gap-1.5">
+              <span className="font-mono text-[11px] text-accent-cyan px-2.5 py-1 rounded bg-accent-cyan/10 border border-accent-cyan/25 font-semibold flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
                 {EXPERIENCE_DATA.status}
               </span>
-              <div className="flex items-center gap-1 font-mono text-xs text-muted-dim">
+              <div className="flex items-center gap-1.5 font-mono text-xs text-muted-dim">
                 <Calendar className="w-3.5 h-3.5 text-accent-violet" />
                 <span>{EXPERIENCE_DATA.period}</span>
               </div>
@@ -45,17 +45,17 @@ export const ExperienceSection: React.FC = () => {
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary-text">
                 {EXPERIENCE_DATA.role}
               </h3>
-              <div className="text-base text-accent-violet font-medium">
+              <div className="text-base sm:text-lg text-accent-violet font-semibold">
                 {EXPERIENCE_DATA.organization}
               </div>
-              <div className="font-mono text-[11px] text-muted-dim">
+              <div className="font-mono text-xs text-muted-dim">
                 {EXPERIENCE_DATA.programme}
               </div>
             </div>
 
             {/* Context Paragraph */}
-            <div className="border-l-2 border-accent-violet/60 pl-4 py-1">
-              <p className="editorial-body leading-relaxed text-muted-text">
+            <div className="border-l-2 border-accent-violet/70 pl-4 py-1">
+              <p className="text-[15.5px] sm:text-[16.5px] leading-relaxed text-[#CFC7DC] font-sans">
                 {EXPERIENCE_DATA.context}
               </p>
             </div>
@@ -67,12 +67,12 @@ export const ExperienceSection: React.FC = () => {
             </div>
 
             {/* Credible Scope Framing */}
-            <div className="p-4 border border-surface-border/70 bg-surface/20 text-xs text-muted-dim space-y-2">
-              <div className="flex items-center gap-2 font-mono text-[10.5px] text-accent-violet font-semibold uppercase">
-                <ShieldAlert className="w-3.5 h-3.5" />
+            <div className="p-4 border border-surface-border/70 bg-surface/25 text-xs text-muted-text space-y-2 rounded-sm">
+              <div className="flex items-center gap-2 font-mono text-xs text-accent-violet font-semibold uppercase">
+                <ShieldAlert className="w-4 h-4" />
                 <span>Credible Technical Framing</span>
               </div>
-              <p className="leading-relaxed font-sans text-[11.5px]">
+              <p className="leading-relaxed font-sans text-xs sm:text-[12.5px] text-muted-text">
                 {EXPERIENCE_DATA.disclaimer}
               </p>
             </div>

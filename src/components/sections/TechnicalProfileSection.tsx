@@ -26,24 +26,51 @@ export const TechnicalProfileSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
           <div className="space-y-1">
-            <span className="font-mono text-[11px] text-accent-cyan tracking-[0.2em] uppercase block">
+            <span className="font-mono text-xs sm:text-[13px] text-accent-cyan tracking-[0.2em] uppercase block font-semibold">
               04 // TECHNICAL PROFILE & FOUNDATIONS
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
               The Tools Behind the Work
             </h2>
           </div>
-          <p className="font-mono text-[11px] text-muted-dim max-w-sm text-left sm:text-right">
+          <p className="font-mono text-xs text-muted-dim max-w-sm text-left sm:text-right tracking-wide">
             STRUCTURED BY DOMAIN APPLICATION • NO ARBITRARY PERCENTAGE GAUGES
           </p>
+        </div>
+
+        {/* Mobile Horizontally Scrollable Tabs (Visible only on mobile/tablet) */}
+        <div className="lg:hidden mb-6">
+          <div className="flex items-center justify-between pb-2 font-mono text-[11px] text-muted-dim uppercase">
+            <span>SELECT DOMAIN</span>
+            <span>{selectedCategoryIndex + 1} OF {TECHNICAL_SKILLS.length}</span>
+          </div>
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none snap-x">
+            {TECHNICAL_SKILLS.map((cat, idx) => {
+              const isActive = selectedCategoryIndex === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedCategoryIndex(idx)}
+                  className={`min-h-[44px] shrink-0 px-3.5 py-2 font-mono text-xs flex items-center gap-2 rounded-sm snap-start transition-all ${
+                    isActive
+                      ? 'bg-accent-violet text-obsidian font-bold shadow-md'
+                      : 'bg-surface/50 border border-surface-border text-muted-text hover:text-primary-text'
+                  }`}
+                >
+                  <span>{getIcon(cat.title)}</span>
+                  <span className="whitespace-nowrap">{cat.title}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Master-Detail Index Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Left: Domain Category Index (4 cols) */}
-          <div className="lg:col-span-4 space-y-1.5">
-            <div className="font-mono text-[10px] text-muted-dim uppercase tracking-wider pb-2 border-b border-surface-border/40 mb-2">
+          {/* Left: Domain Category Index (Desktop only, 4 cols) */}
+          <div className="hidden lg:block lg:col-span-4 space-y-1.5">
+            <div className="font-mono text-xs text-muted-dim uppercase tracking-wider pb-2 border-b border-surface-border/40 mb-2 font-semibold">
               CATALOGUE DIRECTORY ({TECHNICAL_SKILLS.length} DOMAINS)
             </div>
 
@@ -53,20 +80,20 @@ export const TechnicalProfileSection: React.FC = () => {
                 <button
                   key={idx}
                   onClick={() => setSelectedCategoryIndex(idx)}
-                  className={`w-full flex items-center justify-between p-3 text-left font-mono text-xs transition-all border-l-2 ${
+                  className={`w-full min-h-[44px] flex items-center justify-between p-3 text-left font-mono text-xs sm:text-[12.5px] transition-all border-l-2 rounded-r-sm ${
                     isActive
-                      ? 'border-accent-violet bg-surface/40 text-primary-text font-semibold'
-                      : 'border-transparent text-muted-text hover:text-primary-text hover:bg-surface/15'
+                      ? 'border-accent-violet bg-surface/50 text-primary-text font-bold shadow-sm'
+                      : 'border-transparent text-muted-text hover:text-primary-text hover:bg-surface/20'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className="text-[10px] text-muted-dim">0{idx + 1}.</span>
+                    <span className="text-[11px] text-muted-dim">0{idx + 1}.</span>
                     <span className={isActive ? 'text-accent-violet' : 'text-muted-dim'}>
                       {getIcon(cat.title)}
                     </span>
-                    <span className="text-xs">{cat.title}</span>
+                    <span className="tracking-tight">{cat.title}</span>
                   </div>
-                  <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isActive ? 'translate-x-0.5 text-accent-violet' : 'opacity-0'}`} />
+                  <ChevronRight className={`w-4 h-4 transition-transform ${isActive ? 'translate-x-0.5 text-accent-violet' : 'opacity-0'}`} />
                 </button>
               );
             })}
@@ -74,23 +101,23 @@ export const TechnicalProfileSection: React.FC = () => {
 
           {/* Right: Technical Catalogue Detail (8 cols) */}
           <div className="lg:col-span-8">
-            <div className="border border-surface-border/80 bg-midnight/80 p-6 sm:p-8 backdrop-blur-sm space-y-6">
+            <div className="border border-surface-border/80 bg-midnight/80 p-5 sm:p-8 backdrop-blur-sm space-y-6 rounded-sm shadow-lg">
               
               {/* Category Header */}
               <div className="border-b border-surface-border/50 pb-4">
-                <div className="flex items-center justify-between font-mono text-[10.5px] text-accent-violet mb-1.5">
+                <div className="flex items-center justify-between font-mono text-xs text-accent-violet mb-2">
                   <div className="flex items-center gap-2">
                     {getIcon(activeCategory.title)}
-                    <span className="uppercase tracking-wider">DOMAIN SPECIFICATION</span>
+                    <span className="uppercase tracking-wider font-semibold">DOMAIN SPECIFICATION</span>
                   </div>
                   <span className="text-muted-dim">{activeCategory.skills.length} TOOLS DOCUMENTED</span>
                 </div>
 
-                <h3 className="font-heading text-2xl font-bold text-primary-text">
+                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary-text">
                   {activeCategory.title}
                 </h3>
                 
-                <p className="editorial-body text-muted-dim mt-1 max-w-xl">
+                <p className="editorial-secondary text-muted-text mt-1.5 max-w-xl">
                   {activeCategory.description}
                 </p>
               </div>
@@ -103,15 +130,15 @@ export const TechnicalProfileSection: React.FC = () => {
                     className="py-3.5 first:pt-1 last:pb-1 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 hover:bg-surface/10 px-2 -mx-2 transition-colors"
                   >
                     <div className="sm:w-1/3 shrink-0 flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-primary-text">
+                      <span className="font-mono text-xs sm:text-[13px] font-bold text-primary-text">
                         {skill.name}
                       </span>
-                      <span className="font-mono text-[9px] text-accent-cyan px-1.5 py-0.2 rounded bg-accent-cyan/10 uppercase">
+                      <span className="font-mono text-[9.5px] text-accent-cyan px-1.5 py-0.5 rounded bg-accent-cyan/10 uppercase font-semibold">
                         VERIFIED
                       </span>
                     </div>
 
-                    <div className="sm:w-2/3 text-xs text-muted-dim leading-relaxed font-sans">
+                    <div className="sm:w-2/3 text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
                       {skill.context}
                     </div>
                   </div>
@@ -119,9 +146,9 @@ export const TechnicalProfileSection: React.FC = () => {
               </div>
 
               {/* Verification Stamp Footnote */}
-              <div className="pt-3 border-t border-surface-border/40 flex items-center justify-between text-[10px] font-mono text-muted-dim">
-                <span>SELECTION CRITERIA: GENUINELY EMPLOYED IN SOURCE CODE</span>
-                <span className="text-accent-violet">SLIIT / JSC / REPOSITORIES</span>
+              <div className="pt-3 border-t border-surface-border/40 flex items-center justify-between text-xs font-mono text-muted-dim">
+                <span>SELECTION CRITERIA: EMPLOYED IN REPOSITORIES & INTERNSHIP</span>
+                <span className="text-accent-violet font-semibold">SLIIT / JSC</span>
               </div>
 
             </div>

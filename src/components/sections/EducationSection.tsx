@@ -10,14 +10,14 @@ export const EducationSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
           <div className="space-y-1">
-            <span className="font-mono text-[11px] text-accent-violet tracking-[0.2em] uppercase block">
+            <span className="font-mono text-xs sm:text-[13px] text-accent-violet tracking-[0.2em] uppercase block font-semibold">
               06 // ACADEMIC RECORD & SCHOLARSHIP
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
               Education & Academic Excellence
             </h2>
           </div>
-          <div className="font-mono text-[11px] text-muted-dim">
+          <div className="font-mono text-xs text-muted-dim tracking-wider uppercase">
             THEORETICAL & APPLIED FOUNDATIONS
           </div>
         </div>
@@ -60,10 +60,10 @@ export const EducationSection: React.FC = () => {
                 {EDUCATION_DATA.highlights.map((highlight, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 border-l border-surface-border/80 bg-surface/15 flex items-start gap-3"
+                    className="p-3.5 border-l-2 border-accent-cyan/60 bg-surface/20 flex items-start gap-3 rounded-r-sm"
                   >
                     <Award className="w-4 h-4 text-accent-cyan shrink-0 mt-0.5" />
-                    <p className="editorial-body text-xs sm:text-[13px] leading-relaxed">
+                    <p className="text-xs sm:text-[13.5px] text-primary-text/90 leading-relaxed font-sans">
                       {highlight}
                     </p>
                   </div>

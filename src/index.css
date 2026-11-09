@@ -82,28 +82,40 @@
 
 /* Editorial Typography & Accents */
 .editorial-lead {
-  font-size: 1.0625rem; /* ~17px */
-  line-height: 1.65;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.6;
   color: #F4F0FA;
-  font-weight: 450;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 @media (min-width: 640px) {
   .editorial-lead {
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.1875rem; /* 19px */
   }
 }
 
 .editorial-body {
-  font-size: 0.84375rem; /* ~13.5px - reduced ~15% from base 16px */
-  line-height: 1.75;
-  color: #AAA2B9;
+  font-size: 1rem; /* 16px */
+  line-height: 1.65;
+  color: #CFC7DC;
 }
 
 @media (min-width: 640px) {
   .editorial-body {
-    font-size: 0.875rem; /* 14px */
+    font-size: 1.0625rem; /* 17px */
+  }
+}
+
+.editorial-secondary {
+  font-size: 0.90625rem; /* 14.5px */
+  line-height: 1.6;
+  color: #AAA2B9;
+}
+
+@media (min-width: 640px) {
+  .editorial-secondary {
+    font-size: 0.9375rem; /* 15px */
   }
 }
 
@@ -113,9 +125,9 @@
 
 .marginalia {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.6875rem; /* 11px */
+  font-size: 0.75rem; /* 12px */
   letter-spacing: 0.08em;
-  color: #7E768E;
+  color: #8E859E;
   text-transform: uppercase;
 }
 

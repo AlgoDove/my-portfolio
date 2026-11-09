@@ -348,54 +348,134 @@ export const TECHNICAL_SKILLS: SkillCategory[] = [
 
 export const AWS_EXPLORATION_SCOPE: AwsServiceItem[] = [
   {
-    name: 'Amazon EC2',
-    purpose: 'Elastic Compute Cloud instances for hosting containerized backends and application services.',
-    focusArea: 'Instance sizing, security group ingress rules, and SSH key management'
-  },
-  {
-    name: 'Amazon S3',
-    purpose: 'Simple Storage Service for secure, high-durability object storage for user uploads and media.',
-    focusArea: 'Bucket policies, pre-signed upload URLs, and public access blocks'
-  },
-  {
-    name: 'AWS IAM',
-    purpose: 'Identity and Access Management for principle-of-least-privilege service authorization.',
-    focusArea: 'Role definitions, granular JSON policies, and service-to-service access control'
-  },
-  {
+    id: 'vpc',
     name: 'Amazon VPC',
-    purpose: 'Virtual Private Cloud for network isolation and secure database boundaries.',
-    focusArea: 'Public/private subnet architecture, route tables, and NAT gateways'
+    category: 'Network & Perimeter',
+    zone: 'ZONE_01 // INGRESS',
+    zoneTitle: 'Network Boundary & Ingress Gateway',
+    explanation: 'A private, logically isolated virtual network dedicated to your cloud resources where you control IP address ranges, subnets, and routing rules.',
+    purpose: 'Enforces strict network isolation; separates public-facing entry points (ALB) from private backend application tasks and databases with zero direct internet exposure.',
+    relatedServices: ['Application Load Balancer (Public Subnets)', 'Amazon ECS / EC2 (Private Subnets)', 'Amazon RDS (Isolated DB Subnets)'],
+    learningStatus: 'Hands-on Lab Exploration',
+    concepts: ['CIDR Subnetting (/24, /28)', 'Public vs. Private Subnets', 'Route Tables & Internet Gateways', 'Stateful Security Groups'],
+    focusArea: 'Multi-AZ subnet architecture, NAT Gateway routing, and database security group ingress isolation.'
   },
   {
-    name: 'Amazon RDS',
-    purpose: 'Managed Relational Database Service for high-availability PostgreSQL deployments.',
-    focusArea: 'Automated backups, multi-AZ failover concepts, and connection pooling'
-  },
-  {
-    name: 'Amazon CloudWatch',
-    purpose: 'Centralized observability, metric alarms, and application log streaming.',
-    focusArea: 'Log group ingestion, synthetic health checks, and alarm triggers'
-  },
-  {
-    name: 'Amazon ECR',
-    purpose: 'Elastic Container Registry for storing versioned Docker images securely.',
-    focusArea: 'Image tagging conventions, vulnerability scanning, and lifecycle rules'
-  },
-  {
-    name: 'Amazon ECS (Fargate)',
-    purpose: 'Serverless container orchestration for deploying microservices without managing servers.',
-    focusArea: 'Task definitions, CPU/memory allocation, and automated service restarts'
-  },
-  {
+    id: 'alb',
     name: 'Application Load Balancer',
-    purpose: 'Distributing incoming web traffic across healthy target groups with SSL termination.',
-    focusArea: 'Path-based routing rules, health check probes, and HTTPS listener configuration'
+    category: 'Traffic Ingress & Routing',
+    zone: 'ZONE_01 // INGRESS',
+    zoneTitle: 'Network Boundary & Ingress Gateway',
+    explanation: 'An intelligent layer-7 reverse proxy that terminates incoming HTTP/HTTPS connections and distributes traffic evenly across healthy backend targets.',
+    purpose: 'Serves as the single public entry point for client traffic (React web and mobile apps), handling TLS/SSL termination and path-based routing to backend APIs.',
+    relatedServices: ['Amazon VPC (Deployed across multi-AZ public subnets)', 'Amazon ECS / EC2 (Forwards traffic to target groups)', 'AWS Secrets Manager / ACM (SSL certificates)'],
+    learningStatus: 'Architecture Blueprinting',
+    concepts: ['Path-based Routing Rules', 'Target Group Health Checks', 'SSL/TLS Offloading', 'Connection Draining'],
+    focusArea: 'Health probe intervals, path forwarding rules, and HTTPS listener configuration.'
   },
   {
+    id: 'ecs-fargate',
+    name: 'Amazon ECS (Fargate)',
+    category: 'Container Runtime',
+    zone: 'ZONE_02 // COMPUTE',
+    zoneTitle: 'Compute & Container Runtime',
+    explanation: 'A fully managed container orchestration service that executes Docker containers using AWS Fargate serverless compute without provisioning underlying virtual servers.',
+    purpose: 'Hosts the modular monolith ASP.NET Core 8 Web API and Spring Boot 3 workflow engine, providing automated task recovery, scaling, and zero-patching infrastructure.',
+    relatedServices: ['Amazon ECR (Pulls versioned Docker images)', 'Application Load Balancer (Receives forwarded HTTP requests)', 'AWS IAM (Task execution roles for credentials)'],
+    learningStatus: 'Hands-on Lab Exploration',
+    concepts: ['Task Definitions & Container Specs', 'Fargate CPU/Memory Sizing', 'Service Auto-Recovery', 'Runtime Secret Injection'],
+    focusArea: 'Task definition configuration, memory allocation, and automated task restarts upon process failure.'
+  },
+  {
+    id: 'ec2',
+    name: 'Amazon EC2',
+    category: 'Virtual Compute',
+    zone: 'ZONE_02 // COMPUTE',
+    zoneTitle: 'Compute & Container Runtime',
+    explanation: 'On-demand virtual server instances that provide complete administrative control over the operating system, compute capacity, and storage volumes.',
+    purpose: 'Explored as a foundational compute alternative for staging environments, custom background worker processes, and direct Linux system operations.',
+    relatedServices: ['Amazon VPC (Resides inside private app subnets)', 'Application Load Balancer (Registered as target instances)', 'Amazon CloudWatch (Host telemetry agent)'],
+    learningStatus: 'Hands-on Lab Exploration',
+    concepts: ['Instance Family Sizing (t3/t4g)', 'Security Group Ingress Rules', 'SSH Keypair Security', 'User Data Bootstrap Scripts'],
+    focusArea: 'Linux instance hardening, security group ingress rules, and initialization scripts.'
+  },
+  {
+    id: 'ecr',
+    name: 'Amazon ECR',
+    category: 'Image Registry',
+    zone: 'ZONE_02 // COMPUTE',
+    zoneTitle: 'Compute & Container Runtime',
+    explanation: 'A private, fully managed Docker container registry that securely stores, encrypts, and scans container images for software vulnerabilities.',
+    purpose: 'Stores production-ready container images built by GitHub Actions CI pipelines, automatically scanning them for Common Vulnerabilities and Exposures (CVEs).',
+    relatedServices: ['GitHub Actions (Pushes tagged release images)', 'Amazon ECS (Pulls images during deployment)', 'AWS IAM (Registry authorization policies)'],
+    learningStatus: 'Configuration & Policy Design',
+    concepts: ['Semantic Image Tagging', 'Lifecycle Pruning Rules', 'Automated Vulnerability Scanning', 'IAM Registry Token Authentication'],
+    focusArea: 'Repository lifecycle policies to prune untagged images and scan-on-push security configuration.'
+  },
+  {
+    id: 'rds',
+    name: 'Amazon RDS',
+    category: 'Managed Relational DB',
+    zone: 'ZONE_03 // PERSISTENCE',
+    zoneTitle: 'Persistence & Object Store',
+    explanation: 'A managed relational database service that automates database setup, hardware maintenance, OS patching, automated daily snapshots, and high-availability failover.',
+    purpose: 'Stores critical ACID relational data including procurement requests, line items, user accounts, and immutable audit logs in high-availability PostgreSQL.',
+    relatedServices: ['Amazon VPC (Isolated in private database subnets)', 'Amazon ECS / EC2 (Only allowed compute tier via port 5432)', 'AWS Secrets Manager (Master password rotation)'],
+    learningStatus: 'Local-to-Cloud Migration',
+    concepts: ['Multi-AZ Failover Topologies', 'Automated Daily Snapshots & PITR', 'Connection Pooling Limits', 'Security Group Whitelisting'],
+    focusArea: 'PostgreSQL instance parameter tuning, multi-AZ standby replication, and automated backup windows.'
+  },
+  {
+    id: 's3',
+    name: 'Amazon S3',
+    category: 'Object Storage',
+    zone: 'ZONE_03 // PERSISTENCE',
+    zoneTitle: 'Persistence & Object Store',
+    explanation: 'High-durability (99.999999999%) cloud object storage designed to securely store and retrieve any volume of unstructured data from anywhere on the web.',
+    purpose: 'Stores user-uploaded attachments, vendor quotation PDF documents for Procura, infrastructure hazard photos for FixMyArea, and automated database backup exports.',
+    relatedServices: ['Amazon ECS (Generates short-lived pre-signed URLs for client uploads)', 'AWS IAM (Least-privilege bucket access policies)', 'Amazon CloudWatch (Storage metrics and access logs)'],
+    learningStatus: 'Hands-on Lab Exploration',
+    concepts: ['Bucket Access Policies', 'Pre-Signed Upload & Download URLs', 'Block Public Access Enforcement', 'Server-Side Encryption (SSE-S3 / SSE-KMS)'],
+    focusArea: 'Time-limited pre-signed URL generation so clients upload directly without bottlenecking API servers.'
+  },
+  {
+    id: 'iam',
+    name: 'AWS IAM',
+    category: 'Security & Identity',
+    zone: 'ZONE_04 // GOVERNANCE',
+    zoneTitle: 'Governance, Secrets & Observability',
+    explanation: 'The central identity and access management service that manages authentication and granular permissions for both human users and cloud services.',
+    purpose: 'Enforces the Principle of Least Privilege across all tiers—ensuring backend containers only receive permission to read their specific secrets and access designated S3 buckets.',
+    relatedServices: ['Amazon ECS (Task Execution Roles)', 'AWS Secrets Manager (Restricts secret reads to verified services)', 'Amazon S3 (Bucket access controls)'],
+    learningStatus: 'Configuration & Policy Design',
+    concepts: ['IAM Roles vs. Users vs. Groups', 'Granular Least-Privilege JSON Policies', 'Trust Relationships & AssumeRole', 'Credential-Free AWS SDK Calls'],
+    focusArea: 'Authoring scoped JSON policies for container execution roles without hardcoding AWS access keys.'
+  },
+  {
+    id: 'secrets-manager',
     name: 'AWS Secrets Manager',
-    purpose: 'Secure storage and automated rotation of database credentials and JWT signing keys.',
-    focusArea: 'Runtime secret retrieval via IAM roles instead of hardcoded environment variables'
+    category: 'Secrets Management',
+    zone: 'ZONE_04 // GOVERNANCE',
+    zoneTitle: 'Governance, Secrets & Observability',
+    explanation: 'A dedicated security service to protect secrets (database passwords, API keys, JWT signing keys) needed to access applications, services, and IT resources.',
+    purpose: 'Replaces plain-text environment variables; securely stores PostgreSQL credentials and API tokens, delivering them directly to containers at launch time via IAM.',
+    relatedServices: ['Amazon RDS (Stores and automates rotation of DB credentials)', 'Amazon ECS (Injects secrets into tasks at runtime)', 'AWS IAM (Governs decryption permissions)'],
+    learningStatus: 'Architecture Blueprinting',
+    concepts: ['KMS Key Encryption', 'Runtime Secret Injection', 'Automated Rotation Lambdas', 'Access Audit Logging via CloudTrail'],
+    focusArea: 'Dynamic secret injection into ECS task definition environments via IAM role permissions.'
+  },
+  {
+    id: 'cloudwatch',
+    name: 'Amazon CloudWatch',
+    category: 'Observability & Metrics',
+    zone: 'ZONE_04 // GOVERNANCE',
+    zoneTitle: 'Governance, Secrets & Observability',
+    explanation: 'A monitoring and observability service that collects application log streams, performance metrics, and events to provide operational insight.',
+    purpose: 'Aggregates structured application logs from ASP.NET Core and Spring Boot, tracks system metrics (CPU, Memory, 5xx HTTP spikes), and triggers automated alerts.',
+    relatedServices: ['Amazon ECS / EC2 (Streams container stdout/stderr via awslogs driver)', 'Amazon RDS (Monitors query throughput and connection saturation)', 'Application Load Balancer (Access logs and latency metrics)'],
+    learningStatus: 'Hands-on Lab Exploration',
+    concepts: ['Log Groups & Streams (awslogs driver)', 'Metric Alarms (CPU/Memory breach triggers)', 'Composite Health Alarms', 'Synthetic Canary Probes'],
+    focusArea: 'Container log streaming, error-rate alarm thresholds, and synthetic health probe monitoring.'
   }
 ];
 

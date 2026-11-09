@@ -22,14 +22,14 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-20 pb-4 border-b border-surface-border/50 gap-2">
           <div className="space-y-1">
-            <span className="font-mono text-[11px] text-accent-cyan tracking-[0.2em] uppercase block">
+            <span className="font-mono text-xs sm:text-[13px] text-accent-cyan tracking-[0.2em] uppercase block font-semibold">
               02 // SELECTED SYSTEMS & CODEBASES
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
               Software Built Around Real Problems
             </h2>
           </div>
-          <p className="font-mono text-[11px] text-muted-dim max-w-sm text-left sm:text-right">
+          <p className="font-mono text-xs text-muted-dim max-w-sm text-left sm:text-right tracking-wide">
             ARCHITECTURAL SCHEMATICS, TRADE-OFFS & VERIFIED REPOSITORY EVIDENCE
           </p>
         </div>
@@ -42,11 +42,11 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
           {/* Procura Header Area */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
             <div className="space-y-3 max-w-3xl">
-              <div className="flex items-center gap-2.5">
-                <span className="font-mono text-[10px] text-accent-violet px-2 py-0.5 rounded bg-accent-violet/10 border border-accent-violet/30 font-semibold tracking-wider uppercase">
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <span className="font-mono text-[11px] text-accent-violet px-2.5 py-1 rounded bg-accent-violet/10 border border-accent-violet/30 font-semibold tracking-wider uppercase">
                   PRIMARY CODEBASE CASE STUDY
                 </span>
-                <span className="font-mono text-[11px] text-muted-dim">
+                <span className="font-mono text-xs text-muted-dim">
                   ASP.NET CORE 8 • C# 12 • EF CORE • POSTGRESQL
                 </span>
               </div>
@@ -60,13 +60,13 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
               </p>
             </div>
 
-            {/* Quick Actions */}
-            <div className="flex items-center gap-3 self-start lg:self-end">
+            {/* Quick Actions - 44px min touch target */}
+            <div className="flex flex-wrap items-center gap-3 self-start lg:self-end">
               <a
                 href={procura.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-text hover:text-accent-cyan transition-colors px-3 py-2 border border-surface-border bg-midnight/60 hover:bg-surface"
+                className="min-h-[44px] inline-flex items-center gap-2 font-mono text-xs sm:text-[12.5px] text-muted-text hover:text-accent-cyan transition-colors px-4 py-2.5 border border-surface-border bg-midnight/60 hover:bg-surface rounded-sm"
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>GitHub Repository</span>
@@ -75,9 +75,9 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
 
               <button
                 onClick={() => onSelectProject(procura)}
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-mono text-xs font-bold transition-all shadow-md"
+                className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-mono text-xs sm:text-[12.5px] font-bold transition-all shadow-md rounded-sm"
               >
-                <Layers className="w-3.5 h-3.5" />
+                <Layers className="w-4 h-4" />
                 <span>Inspect Architecture</span>
               </button>
             </div>
@@ -231,10 +231,10 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
                 </p>
               </div>
 
-              <div className="flex items-center gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
                   onClick={() => onSelectProject(approvalEngine)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface hover:bg-surface-elevated border border-surface-border font-mono text-xs text-primary-text transition-colors"
+                  className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 bg-surface hover:bg-surface-elevated border border-surface-border font-mono text-xs sm:text-[12.5px] text-primary-text transition-colors rounded-sm"
                 >
                   <Layers className="w-3.5 h-3.5 text-accent-cyan" />
                   <span>Inspect Workflow State Machine</span>
@@ -243,7 +243,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
                   href={approvalEngine.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs text-muted-dim hover:text-primary-text transition-colors flex items-center gap-1"
+                  className="min-h-[44px] px-3 py-2 border border-surface-border/60 bg-surface/30 rounded-sm font-mono text-xs text-muted-dim hover:text-primary-text transition-colors flex items-center gap-1.5"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>Repo</span>
@@ -299,10 +299,10 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
                 </p>
               </div>
 
-              <div className="flex items-center gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
                   onClick={() => onSelectProject(fixMyArea)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface hover:bg-surface-elevated border border-surface-border font-mono text-xs text-primary-text transition-colors"
+                  className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 bg-surface hover:bg-surface-elevated border border-surface-border font-mono text-xs sm:text-[12.5px] text-primary-text transition-colors rounded-sm"
                 >
                   <Layers className="w-3.5 h-3.5 text-accent-rose" />
                   <span>Inspect Civic API Architecture</span>
@@ -311,7 +311,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
                   href={fixMyArea.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs text-muted-dim hover:text-primary-text transition-colors flex items-center gap-1"
+                  className="min-h-[44px] px-3 py-2 border border-surface-border/60 bg-surface/30 rounded-sm font-mono text-xs text-muted-dim hover:text-primary-text transition-colors flex items-center gap-1.5"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>Repo</span>
@@ -369,10 +369,10 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
                   onClick={() => onSelectProject(fraudDetection)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface hover:bg-surface-elevated border border-surface-border font-mono text-xs text-primary-text transition-colors"
+                  className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 bg-surface hover:bg-surface-elevated border border-surface-border font-mono text-xs sm:text-[12.5px] text-primary-text transition-colors rounded-sm"
                 >
                   <Layers className="w-3.5 h-3.5 text-accent-violet" />
                   <span>Inspect Autoencoder Loss & Latent Dim</span>
@@ -381,7 +381,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
                   href={fraudDetection.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs text-muted-dim hover:text-primary-text transition-colors flex items-center gap-1"
+                  className="min-h-[44px] px-3 py-2 border border-surface-border/60 bg-surface/30 rounded-sm font-mono text-xs text-muted-dim hover:text-primary-text transition-colors flex items-center gap-1.5"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>Repo</span>

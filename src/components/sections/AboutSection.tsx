@@ -15,14 +15,14 @@ export const AboutSection: React.FC = () => {
         {/* Editorial Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
           <div className="space-y-1">
-            <span className="font-mono text-[11px] text-accent-violet tracking-[0.2em] uppercase block">
+            <span className="font-mono text-xs sm:text-[13px] text-accent-violet tracking-[0.2em] uppercase block font-semibold">
               01 // ENGINEERING PHILOSOPHY & STORY
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-text tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-primary-text tracking-tight">
               The Person Behind the Code
             </h2>
           </div>
-          <div className="font-mono text-[11px] text-muted-dim">
+          <div className="font-mono text-xs text-muted-dim tracking-wider uppercase">
             SYSTEM BOUNDARIES & METHODICAL IMPLEMENTATION
           </div>
         </div>
@@ -41,7 +41,7 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-8">
             
             <div className="space-y-5 text-muted-text font-sans leading-[1.8] editorial-body-prose">
-              <p className="text-primary-text font-medium text-[15px] sm:text-[16px] leading-relaxed">
+              <p className="text-primary-text font-medium text-[16px] sm:text-[17px] leading-relaxed">
                 As an undergraduate software engineer studying at SLIIT and currently interning at the Sri Lanka Judicial Service Commission, I approach software engineering through the lens of systems: where boundaries lie, how data moves across tiers, what happens when transactions fail, and how authorization is enforced at every layer.
               </p>
               
@@ -56,52 +56,52 @@ export const AboutSection: React.FC = () => {
 
             {/* Principles: Editorial Horizontal Flow instead of 4 boxed cards */}
             <div className="pt-6 border-t border-surface-border/50 space-y-6">
-              <span className="font-mono text-[11px] text-muted-dim uppercase tracking-wider block">
+              <span className="font-mono text-xs text-muted-dim uppercase tracking-wider block font-semibold">
                 CORE OPERATIONAL PRINCIPLES
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 
                 {/* Principle 01 */}
-                <div className="space-y-1.5 border-l border-surface-border/80 pl-4">
-                  <div className="flex items-center gap-2 font-mono text-xs font-semibold text-primary-text">
-                    <Compass className="w-3.5 h-3.5 text-accent-violet" />
+                <div className="space-y-2 border-l-2 border-accent-violet/60 pl-4 py-0.5">
+                  <div className="flex items-center gap-2 font-mono text-sm sm:text-[14.5px] font-semibold text-primary-text">
+                    <Compass className="w-4 h-4 text-accent-violet shrink-0" />
                     <span>01. Requirements Precedence</span>
                   </div>
-                  <p className="text-xs text-muted-dim leading-relaxed">
+                  <p className="text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
                     Clarifying operational realities, domain roles, and edge conditions before committing to database schemas or framework choices.
                   </p>
                 </div>
 
                 {/* Principle 02 */}
-                <div className="space-y-1.5 border-l border-surface-border/80 pl-4">
-                  <div className="flex items-center gap-2 font-mono text-xs font-semibold text-primary-text">
-                    <Layers className="w-3.5 h-3.5 text-accent-cyan" />
+                <div className="space-y-2 border-l-2 border-accent-cyan/60 pl-4 py-0.5">
+                  <div className="flex items-center gap-2 font-mono text-sm sm:text-[14.5px] font-semibold text-primary-text">
+                    <Layers className="w-4 h-4 text-accent-cyan shrink-0" />
                     <span>02. Pragmatic Boundaries</span>
                   </div>
-                  <p className="text-xs text-muted-dim leading-relaxed">
+                  <p className="text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
                     Choosing modular monoliths and clean layered boundaries over premature microservice distribution that introduces unnecessary network failure modes.
                   </p>
                 </div>
 
                 {/* Principle 03 */}
-                <div className="space-y-1.5 border-l border-surface-border/80 pl-4">
-                  <div className="flex items-center gap-2 font-mono text-xs font-semibold text-primary-text">
-                    <ShieldCheck className="w-3.5 h-3.5 text-accent-rose" />
+                <div className="space-y-2 border-l-2 border-accent-rose/60 pl-4 py-0.5">
+                  <div className="flex items-center gap-2 font-mono text-sm sm:text-[14.5px] font-semibold text-primary-text">
+                    <ShieldCheck className="w-4 h-4 text-accent-rose shrink-0" />
                     <span>03. Defensive Invariants</span>
                   </div>
-                  <p className="text-xs text-muted-dim leading-relaxed">
+                  <p className="text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
                     Validating ownership, role permissions, and concurrency stamps server-side so clients cannot bypass business invariants.
                   </p>
                 </div>
 
                 {/* Principle 04 */}
-                <div className="space-y-1.5 border-l border-surface-border/80 pl-4">
-                  <div className="flex items-center gap-2 font-mono text-xs font-semibold text-primary-text">
-                    <Terminal className="w-3.5 h-3.5 text-accent-violet" />
+                <div className="space-y-2 border-l-2 border-accent-violet/60 pl-4 py-0.5">
+                  <div className="flex items-center gap-2 font-mono text-sm sm:text-[14.5px] font-semibold text-primary-text">
+                    <Terminal className="w-4 h-4 text-accent-violet shrink-0" />
                     <span>04. Verification Rigor</span>
                   </div>
-                  <p className="text-xs text-muted-dim leading-relaxed">
+                  <p className="text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
                     Backing domain rules with rigorous automated test suites (such as 217 xUnit tests in Procura) to verify system behavior matches specifications.
                   </p>
                 </div>

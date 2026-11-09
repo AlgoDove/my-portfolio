@@ -27,7 +27,7 @@ export function App() {
      * Individual sections use semi-transparent bg overlays so the grid bleeds through.
      * CursorGlow sits at z-0 behind all content via fixed positioning.
      */
-    <div className="site-grid-bg min-h-screen text-primary-text selection:bg-accent-violet/30 selection:text-white font-sans antialiased overflow-x-hidden relative">
+    <div className="site-grid-bg min-h-screen text-primary-text selection:bg-accent-violet/30 selection:text-white font-sans antialiased overflow-x-clip relative">
 
       {/* Background cursor spotlight — stays behind everything */}
       <CursorGlow />

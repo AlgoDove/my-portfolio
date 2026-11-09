@@ -104,7 +104,7 @@ export const CloudInfrastructureSection: React.FC = () => {
   };
 
   return (
-    <section id="cloud" className="py-24 bg-midnight/35 relative border-b border-surface-border/40">
+    <section id="cloud" className="py-24 bg-midnight/35 relative border-b border-surface-border/40 scroll-mt-16">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

@@ -16,7 +16,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
   const fraudDetection = SELECTED_PROJECTS.find(p => p.id === 'fraud-detection') || SELECTED_PROJECTS[3];
 
   return (
-    <section id="work" className="py-24 bg-obsidian/90 relative border-b border-surface-border/40">
+    <section id="work" className="py-24 bg-obsidian/90 relative border-b border-surface-border/40 scroll-mt-16">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -106,20 +106,20 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onSele
             
             {/* Left: Problem & Solution (5 cols) */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="space-y-2 border-l-2 border-accent-rose pl-4">
+              <div className="space-y-2 border-l-2 border-accent-rose pl-4 sm:pl-5 pr-2 py-1">
                 <span className="font-mono text-[10.5px] text-accent-rose uppercase tracking-wider font-semibold block">
                   THE OPERATIONAL BOTTLENECK
                 </span>
-                <p className="editorial-body editorial-body-prose leading-relaxed">
+                <p className="editorial-body editorial-body-prose leading-[1.65]">
                   {procura.problem}
                 </p>
               </div>
 
-              <div className="space-y-2 border-l-2 border-accent-cyan pl-4">
+              <div className="space-y-2 border-l-2 border-accent-cyan pl-4 sm:pl-5 pr-2 py-1">
                 <span className="font-mono text-[10.5px] text-accent-cyan uppercase tracking-wider font-semibold block">
                   ARCHITECTURAL RESOLUTION
                 </span>
-                <p className="editorial-body editorial-body-prose leading-relaxed">
+                <p className="editorial-body editorial-body-prose leading-[1.65]">
                   {procura.solution}
                 </p>
               </div>

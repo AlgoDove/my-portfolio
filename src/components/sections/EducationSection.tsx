@@ -4,7 +4,7 @@ import { EDUCATION_DATA } from '../../data/portfolioData';
 
 export const EducationSection: React.FC = () => {
   return (
-    <section id="education" className="py-24 bg-obsidian/90 border-b border-surface-border/40 relative">
+    <section id="education" className="py-24 bg-obsidian/90 border-b border-surface-border/40 relative scroll-mt-16">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

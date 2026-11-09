@@ -4,7 +4,7 @@ import { EXPERIENCE_DATA } from '../../data/portfolioData';
 
 export const ExperienceSection: React.FC = () => {
   return (
-    <section id="experience" className="py-24 bg-midnight/35 border-b border-surface-border/40 relative">
+    <section id="experience" className="py-24 bg-midnight/35 border-b border-surface-border/40 relative scroll-mt-16">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -54,8 +54,8 @@ export const ExperienceSection: React.FC = () => {
             </div>
 
             {/* Context Paragraph */}
-            <div className="border-l-2 border-accent-violet/70 pl-4 py-1">
-              <p className="text-[15.5px] sm:text-[16.5px] leading-relaxed text-[#CFC7DC] font-sans">
+            <div className="border-l-2 border-accent-violet/70 pl-5 sm:pl-6 pr-4 sm:pr-6 py-2 bg-surface/10 rounded-r-sm">
+              <p className="text-[15.5px] sm:text-[16.5px] leading-[1.65] text-[#CFC7DC] font-sans">
                 {EXPERIENCE_DATA.context}
               </p>
             </div>
@@ -67,12 +67,12 @@ export const ExperienceSection: React.FC = () => {
             </div>
 
             {/* Credible Scope Framing */}
-            <div className="p-4 border border-surface-border/70 bg-surface/25 text-xs text-muted-text space-y-2 rounded-sm">
+            <div className="p-5 sm:p-6 border border-surface-border/70 bg-surface/25 text-xs text-muted-text space-y-2 rounded-sm shadow-sm">
               <div className="flex items-center gap-2 font-mono text-xs text-accent-violet font-semibold uppercase">
                 <ShieldAlert className="w-4 h-4" />
                 <span>Credible Technical Framing</span>
               </div>
-              <p className="leading-relaxed font-sans text-xs sm:text-[13px] text-muted-text">
+              <p className="leading-[1.6] font-sans text-xs sm:text-[13px] text-muted-text">
                 {EXPERIENCE_DATA.disclaimer}
               </p>
             </div>
@@ -82,7 +82,7 @@ export const ExperienceSection: React.FC = () => {
           {/* Right Column: Technical Ledger of Direct Activities (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             
-            <div className="border border-surface-border/80 bg-midnight/80 p-4 sm:p-6 backdrop-blur-sm space-y-6 rounded-sm">
+            <div className="border border-surface-border/80 bg-midnight/80 p-5 sm:p-8 backdrop-blur-sm space-y-6 rounded-sm shadow-lg">
               
               <div className="flex items-center justify-between pb-3 border-b border-surface-border/50 text-xs font-mono text-muted-dim">
                 <div className="flex items-center gap-2 font-semibold text-primary-text">
@@ -97,12 +97,12 @@ export const ExperienceSection: React.FC = () => {
                 {EXPERIENCE_DATA.keyActivities.map((activity, idx) => (
                   <div
                     key={idx}
-                    className="p-3 border-l border-surface-border/80 bg-surface/10 hover:bg-surface/25 transition-colors flex items-start gap-3"
+                    className="p-3.5 sm:p-4 border-l border-surface-border/80 bg-surface/10 hover:bg-surface/25 transition-colors flex items-start gap-3.5 rounded-r-sm"
                   >
                     <span className="font-mono text-[10.5px] text-accent-cyan font-semibold shrink-0 mt-0.5">
                       ACT_{String(idx + 1).padStart(2, '0')}
                     </span>
-                    <p className="editorial-body leading-relaxed">
+                    <p className="editorial-body leading-[1.65]">
                       {activity}
                     </p>
                   </div>

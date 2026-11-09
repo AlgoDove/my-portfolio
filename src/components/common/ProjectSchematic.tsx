@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Maximize2 } from 'lucide-react';
+import { DiagramLightbox } from './DiagramLightbox';
 
 interface ProjectSchematicProps {
   projectId: string;
@@ -14,52 +16,12 @@ export const ProjectSchematic: React.FC<ProjectSchematicProps> = ({
   className = '',
 }) => {
   const [imgFailed, setImgFailed] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  if (imagePath && !imgFailed) {
-    return (
-      <div className={`relative overflow-hidden rounded border border-surface-border bg-midnight/80 group ${className}`}>
-        <img
-          src={imagePath}
-          alt={`${title} visual architecture`}
-          onError={() => setImgFailed(true)}
-          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute bottom-2 left-3 flex items-center gap-2">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
-          <span className="font-mono text-[10px] text-muted-text uppercase tracking-wider">
-            Verified Architecture
-          </span>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className={`relative overflow-hidden rounded border border-surface-border bg-midnight/90 p-4 font-mono select-none flex flex-col justify-between ${className}`}>
-      {/* Background technical grid */}
-      <div className="absolute inset-0 bg-tech-grid opacity-35 pointer-events-none" />
-      
-      {/* Header status line */}
-      <div className="relative z-10 flex items-center justify-between border-b border-surface-border/60 pb-2 mb-3">
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent-violet animate-pulse" />
-          <span className="text-[10px] font-semibold text-primary-text tracking-wider uppercase">
-            TELEMETRY // {projectId.toUpperCase()}
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-1 h-1 rounded-full bg-accent-cyan animate-ping" />
-          <span className="text-[9.5px] text-accent-cyan/85 px-1.5 py-0.5 rounded bg-accent-cyan/10 border border-accent-cyan/20">
-            DATAFLOW LIVE
-          </span>
-        </div>
-      </div>
-
-      {/* Dynamic SVG Schematic with Animated Connection Paths */}
-      <div className="relative z-10 my-auto py-2">
-        {projectId === 'procura' && (
+  const renderSvg = () => {
+    switch (projectId) {
+      case 'procura':
+        return (
           <svg viewBox="0 0 460 220" className="w-full h-auto text-primary-text" fill="none">
             {/* Presentation Tier */}
             <rect x="10" y="20" width="100" height="45" rx="3" fill="#27213A" stroke="#79C9DF" strokeWidth="1" />
@@ -109,9 +71,10 @@ export const ProjectSchematic: React.FC<ProjectSchematicProps> = ({
             <text x="60" y="167" fill="#79C9DF" fontSize="8.5" textAnchor="middle" fontWeight="bold">217 xUnit Tests</text>
             <text x="60" y="179" fill="#AAA2B9" fontSize="7.5" textAnchor="middle">0 Failures Passing</text>
           </svg>
-        )}
+        );
 
-        {projectId === 'approval-workflow' && (
+      case 'approval-workflow':
+        return (
           <svg viewBox="0 0 460 200" className="w-full h-auto text-primary-text" fill="none">
             {/* Step 1: Employee */}
             <rect x="10" y="60" width="90" height="50" rx="3" fill="#27213A" stroke="#A987F5" strokeWidth="1" />
@@ -154,9 +117,10 @@ export const ProjectSchematic: React.FC<ProjectSchematicProps> = ({
             <text x="422" y="94" fill="#F4F0FA" fontSize="7" textAnchor="middle">Requests</text>
             <text x="422" y="106" fill="#A987F5" fontSize="7" textAnchor="middle">Audit Logs</text>
           </svg>
-        )}
+        );
 
-        {projectId === 'fixmyarea' && (
+      case 'fixmyarea':
+        return (
           <svg viewBox="0 0 460 200" className="w-full h-auto text-primary-text" fill="none">
             {/* Citizens Form */}
             <rect x="10" y="35" width="115" height="55" rx="3" fill="#27213A" stroke="#79C9DF" strokeWidth="1" />
@@ -198,9 +162,10 @@ export const ProjectSchematic: React.FC<ProjectSchematicProps> = ({
             <text x="402" y="115" fill="#AAA2B9" fontSize="7" textAnchor="middle">+ SQLite Offline</text>
             <text x="402" y="126" fill="#A987F5" fontSize="6.5" textAnchor="middle">Status & Category Index</text>
           </svg>
-        )}
+        );
 
-        {projectId === 'fraud-detection' && (
+      case 'fraud-detection':
+        return (
           <svg viewBox="0 0 460 200" className="w-full h-auto text-primary-text" fill="none">
             {/* Input Vector */}
             <rect x="10" y="45" width="85" height="100" rx="3" fill="#27213A" stroke="#A987F5" strokeWidth="1" />
@@ -240,14 +205,117 @@ export const ProjectSchematic: React.FC<ProjectSchematicProps> = ({
             <text x="412" y="108" fill="#79C9DF" fontSize="7.5" textAnchor="middle">Recall: 1.0</text>
             <text x="412" y="124" fill="#D77CCB" fontSize="7" textAnchor="middle">Anomaly Flag</text>
           </svg>
-        )}
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  if (imagePath && !imgFailed) {
+    return (
+      <>
+        <div className={`relative overflow-hidden rounded border border-surface-border bg-midnight/80 group ${className}`}>
+          <img
+            src={imagePath}
+            alt={`${title} visual architecture`}
+            onError={() => setImgFailed(true)}
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent pointer-events-none" />
+          
+          <button
+            onClick={() => setLightboxOpen(true)}
+            className="absolute top-2.5 right-2.5 min-h-[36px] min-w-[36px] p-2 rounded bg-obsidian/80 hover:bg-obsidian border border-surface-border text-accent-cyan hover:text-white transition-all shadow-md flex items-center gap-1.5 font-mono text-[11px]"
+            title="Inspect full diagram in lightbox"
+            aria-label="Inspect full diagram in lightbox"
+          >
+            <Maximize2 className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">INSPECT</span>
+          </button>
+
+          <div className="absolute bottom-2 left-3 flex items-center gap-2">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
+            <span className="font-mono text-[10px] text-muted-text uppercase tracking-wider">
+              Verified Architecture
+            </span>
+          </div>
+        </div>
+
+        <DiagramLightbox
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          title={title}
+          projectId={projectId}
+        >
+          <div className="relative rounded-lg overflow-hidden border border-surface-border bg-midnight shadow-2xl p-2 sm:p-4">
+            <img
+              src={imagePath}
+              alt={`${title} visual architecture`}
+              className="max-h-[75vh] w-auto mx-auto object-contain rounded"
+            />
+          </div>
+        </DiagramLightbox>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className={`relative overflow-hidden rounded border border-surface-border bg-midnight/90 p-4 font-mono select-none flex flex-col justify-between ${className}`}>
+        {/* Background technical grid */}
+        <div className="absolute inset-0 bg-tech-grid opacity-35 pointer-events-none" />
+        
+        {/* Header status line */}
+        <div className="relative z-10 flex items-center justify-between border-b border-surface-border/60 pb-2 mb-3">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-violet animate-pulse" />
+            <span className="text-[10px] font-semibold text-primary-text tracking-wider uppercase">
+              TELEMETRY // {projectId.toUpperCase()}
+            </span>
+          </div>
+          
+          <div className="flex items-center gap-2">
+            {/* Visual indicator to expand/inspect fullscreen */}
+            <button
+              onClick={() => setLightboxOpen(true)}
+              className="min-h-[32px] inline-flex items-center gap-1.5 text-[10px] text-accent-cyan hover:text-white px-2.5 py-1 rounded bg-accent-cyan/10 hover:bg-accent-cyan/20 border border-accent-cyan/30 transition-all font-mono font-semibold"
+              title="Inspect full diagram in interactive zoomable lightbox"
+              aria-label={`Inspect ${title} diagram in fullscreen lightbox`}
+            >
+              <Maximize2 className="w-3 h-3 text-accent-cyan" />
+              <span>EXPAND</span>
+            </button>
+            <span className="text-[9.5px] text-accent-cyan/85 px-1.5 py-0.5 rounded bg-accent-cyan/10 border border-accent-cyan/20 hidden xs:inline-block">
+              DATAFLOW LIVE
+            </span>
+          </div>
+        </div>
+
+        {/* Dynamic SVG Schematic with Animated Connection Paths */}
+        <div className="relative z-10 my-auto py-2">
+          {renderSvg()}
+        </div>
+
+        {/* Footer metadata line */}
+        <div className="relative z-10 flex items-center justify-between border-t border-surface-border/60 pt-2 mt-2 text-[9.5px] text-muted-dim">
+          <span>ARCHITECTURAL VECTOR SPEC</span>
+          <span className="text-accent-violet">VERIFIED BOUNDARY</span>
+        </div>
       </div>
 
-      {/* Footer metadata line */}
-      <div className="relative z-10 flex items-center justify-between border-t border-surface-border/60 pt-2 mt-2 text-[9.5px] text-muted-dim">
-        <span>ARCHITECTURAL VECTOR SPEC</span>
-        <span className="text-accent-violet">VERIFIED BOUNDARY</span>
-      </div>
-    </div>
+      {/* Interactive Fullscreen Lightbox Modal */}
+      <DiagramLightbox
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        title={title}
+        projectId={projectId}
+      >
+        <div className="border border-surface-border/80 bg-midnight/95 p-4 sm:p-8 rounded-lg shadow-2xl">
+          {renderSvg()}
+        </div>
+      </DiagramLightbox>
+    </>
   );
 };

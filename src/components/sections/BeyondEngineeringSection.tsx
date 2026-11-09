@@ -10,7 +10,7 @@ export const BeyondEngineeringSection: React.FC = () => {
   };
 
   return (
-    <section id="beyond" className="py-20 bg-midnight/20 border-b border-surface-border/40 relative">
+    <section id="beyond" className="py-20 bg-midnight/20 border-b border-surface-border/40 relative scroll-mt-16">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

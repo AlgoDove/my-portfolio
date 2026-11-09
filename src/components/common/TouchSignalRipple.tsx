@@ -29,15 +29,15 @@ export const TouchSignalRipple: React.FC = () => {
 
     const newId = ++idCounter.current;
     setRipples((prev) => {
-      // Keep at most 6 simultaneous ripples to prevent visual or DOM clutter
-      const trimmed = prev.slice(-5);
+      // Keep at most 3 simultaneous ripples to prevent visual or DOM clutter
+      const trimmed = prev.slice(-2);
       return [...trimmed, { id: newId, x: clientX, y: clientY }];
     });
 
-    // Clean up after 700ms
+    // Clean up after 320ms (matching the 300ms animation duration)
     setTimeout(() => {
       setRipples((prev) => prev.filter((r) => r.id !== newId));
-    }, 700);
+    }, 320);
   }, []);
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export const TouchSignalRipple: React.FC = () => {
   return (
     <div
       aria-hidden="true"
-      className="fixed inset-0 pointer-events-none z-50 overflow-hidden select-none"
+      className="fixed inset-0 pointer-events-none z-[1] overflow-hidden select-none"
     >
       {ripples.map((ripple) => (
         <div
@@ -92,25 +92,25 @@ export const TouchSignalRipple: React.FC = () => {
         >
           {/* Central Luminous Signal Point */}
           <div
-            className="signal-ripple-core absolute w-2.5 h-2.5 rounded-full bg-accent-cyan shadow-[0_0_12px_#79C9DF,0_0_20px_#A987F5]"
+            className="signal-ripple-core absolute w-2 h-2 rounded-full bg-accent-cyan/80 shadow-[0_0_8px_rgba(121,201,223,0.4),0_0_12px_rgba(169,135,245,0.3)]"
           />
 
           {/* Inner Orbital Ring (Cyan stroke, 52px) */}
           <div
             style={{ width: '52px', height: '52px' }}
-            className="signal-ripple-ring1 absolute rounded-full border-2 border-accent-cyan/90 shadow-[0_0_12px_rgba(121,201,223,0.6)]"
+            className="signal-ripple-ring1 absolute rounded-full border border-accent-cyan/60 shadow-[0_0_8px_rgba(121,201,223,0.3)]"
           />
 
           {/* Mid Orbital Ring (Violet dashed stroke, 96px) */}
           <div
             style={{ width: '96px', height: '96px' }}
-            className="signal-ripple-ring2 absolute rounded-full border border-dashed border-accent-violet/85 shadow-[0_0_14px_rgba(169,135,245,0.45)]"
+            className="signal-ripple-ring2 absolute rounded-full border border-dashed border-accent-violet/50 shadow-[0_0_8px_rgba(169,135,245,0.25)]"
           />
 
           {/* Outer Orbital Ring (Rose stroke, 136px) */}
           <div
             style={{ width: '136px', height: '136px' }}
-            className="signal-ripple-ring3 absolute rounded-full border border-accent-rose/70 shadow-[0_0_16px_rgba(215,124,203,0.35)]"
+            className="signal-ripple-ring3 absolute rounded-full border border-accent-rose/40 shadow-[0_0_10px_rgba(215,124,203,0.2)]"
           />
 
           {/* Technical Cardinal Crosshair Ticks (N, S, E, W reticle accents) */}
@@ -119,13 +119,13 @@ export const TouchSignalRipple: React.FC = () => {
             className="signal-ripple-ticks absolute flex items-center justify-center"
           >
             {/* Top tick */}
-            <span className="absolute top-0 w-1 h-2 bg-accent-cyan/90 rounded-full shadow-[0_0_6px_#79C9DF]" />
+            <span className="absolute top-0 w-0.5 h-1.5 bg-accent-cyan/60 rounded-full" />
             {/* Bottom tick */}
-            <span className="absolute bottom-0 w-1 h-2 bg-accent-cyan/90 rounded-full shadow-[0_0_6px_#79C9DF]" />
+            <span className="absolute bottom-0 w-0.5 h-1.5 bg-accent-cyan/60 rounded-full" />
             {/* Left tick */}
-            <span className="absolute left-0 h-1 w-2 bg-accent-violet/90 rounded-full shadow-[0_0_6px_#A987F5]" />
+            <span className="absolute left-0 h-0.5 w-1.5 bg-accent-violet/60 rounded-full" />
             {/* Right tick */}
-            <span className="absolute right-0 h-1 w-2 bg-accent-violet/90 rounded-full shadow-[0_0_6px_#A987F5]" />
+            <span className="absolute right-0 h-0.5 w-1.5 bg-accent-violet/60 rounded-full" />
           </div>
         </div>
       ))}

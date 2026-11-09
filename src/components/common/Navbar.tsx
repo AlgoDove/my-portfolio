@@ -58,10 +58,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`sticky top-0 z-[100] w-full transition-all duration-300 bg-obsidian/80 backdrop-blur-md [-webkit-backdrop-filter:blur(12px)] border-b py-3 shadow-lg ${
         isScrolled
-          ? 'bg-obsidian/90 backdrop-blur-md border-b border-surface-border py-3 shadow-lg shadow-obsidian/50'
-          : 'bg-transparent py-5'
+          ? 'border-surface-border/80 shadow-obsidian/60'
+          : 'border-surface-border/40 shadow-obsidian/30'
       }`}
     >
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">

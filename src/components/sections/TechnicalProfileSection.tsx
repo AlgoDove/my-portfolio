@@ -19,8 +19,38 @@ export const TechnicalProfileSection: React.FC = () => {
 
   const activeCategory = TECHNICAL_SKILLS[selectedCategoryIndex];
 
+  const getCategoryAccent = (title: string) => {
+    switch (title) {
+      case 'Programming Languages':
+      case 'Frontend & Mobile Engineering':
+        return {
+          pill: 'bg-accent-violet/12 text-accent-violet border border-accent-violet/20',
+          dot: 'bg-accent-violet',
+        };
+      case 'Backend Engineering & APIs':
+      case 'Databases & Persistence':
+      case 'Testing & Verification':
+        return {
+          pill: 'bg-accent-cyan/12 text-accent-cyan border border-accent-cyan/20',
+          dot: 'bg-accent-cyan',
+        };
+      case 'Machine Learning & AI':
+        return {
+          pill: 'bg-accent-rose/12 text-accent-rose border border-accent-rose/20',
+          dot: 'bg-accent-rose',
+        };
+      default:
+        return {
+          pill: 'bg-surface/50 text-primary-text border border-surface-border/40',
+          dot: 'bg-accent-cyan',
+        };
+    }
+  };
+
+  const currentAccent = getCategoryAccent(activeCategory.title);
+
   return (
-    <section id="stack" className="py-24 bg-obsidian/90 border-b border-surface-border/40 relative">
+    <section id="stack" className="py-24 bg-obsidian/90 border-b border-surface-border/40 relative scroll-mt-16">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -127,13 +157,17 @@ export const TechnicalProfileSection: React.FC = () => {
                 {activeCategory.skills.map((skill, sIdx) => (
                   <div
                     key={sIdx}
-                    className="py-3.5 first:pt-1 last:pb-1 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 hover:bg-surface/10 px-2 -mx-2 transition-colors"
+                    className="py-3.5 first:pt-1 last:pb-1 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 px-2 -mx-2 select-text"
                   >
+                    {/* Non-interactive informational badge */}
                     <div className="sm:w-1/3 shrink-0 flex items-center gap-2">
-                      <span className="font-mono text-xs sm:text-[13px] font-bold text-primary-text">
-                        {skill.name}
+                      <span
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded font-mono text-xs font-medium cursor-default select-text ${currentAccent.pill}`}
+                      >
+                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${currentAccent.dot}`} />
+                        <span>{skill.name}</span>
                       </span>
-                      <span className="font-mono text-[9.5px] text-accent-cyan px-1.5 py-0.5 rounded bg-accent-cyan/10 uppercase font-semibold">
+                      <span className="font-mono text-[9px] text-muted-dim tracking-wider uppercase cursor-default select-text">
                         VERIFIED
                       </span>
                     </div>

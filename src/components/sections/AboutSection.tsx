@@ -6,7 +6,7 @@ export const AboutSection: React.FC = () => {
   const [profileImgFailed, setProfileImgFailed] = useState(false);
 
   return (
-    <section id="about" className="py-24 bg-midnight/30 relative border-b border-surface-border/40">
+    <section id="about" className="py-24 bg-midnight/30 relative border-b border-surface-border/40 scroll-mt-16">
       {/* Subtle atmospheric ambient glow */}
       <div className="absolute top-1/2 left-10 w-96 h-96 bg-accent-violet/5 rounded-full blur-[140px] pointer-events-none" />
 
@@ -28,8 +28,8 @@ export const AboutSection: React.FC = () => {
         </div>
 
         {/* Lead Editorial Statement */}
-        <div className="mb-14 border-l-2 border-accent-cyan/80 pl-6 sm:pl-8 py-1 max-w-4xl">
-          <blockquote className="font-heading text-xl sm:text-2xl text-primary-text font-normal leading-relaxed">
+        <div className="mb-14 border-l-2 border-accent-cyan/80 pl-6 sm:pl-8 pr-4 sm:pr-8 py-2 max-w-4xl bg-surface/10 rounded-r-sm">
+          <blockquote className="font-heading text-xl sm:text-2xl text-primary-text font-normal leading-[1.6]">
             “Software development is not simply writing code. It begins with understanding a problem, identifying requirements and domain constraints, choosing an appropriate design, implementing it, testing it, and continually improving it.”
           </blockquote>
         </div>
@@ -38,18 +38,18 @@ export const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left: Narrative Essay & Principles (7 cols) */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-8 px-1 sm:px-2">
             
-            <div className="space-y-5 text-muted-text font-sans leading-[1.8] editorial-body-prose">
-              <p className="text-primary-text font-medium text-[16px] sm:text-[17px] leading-relaxed">
+            <div className="space-y-5 text-muted-text font-sans leading-[1.7] editorial-body-prose">
+              <p className="text-primary-text font-medium text-[16px] sm:text-[17.5px] leading-[1.65]">
                 As an undergraduate software engineer studying at SLIIT and currently interning at the Sri Lanka Judicial Service Commission, I approach software engineering through the lens of systems: where boundaries lie, how data moves across tiers, what happens when transactions fail, and how authorization is enforced at every layer.
               </p>
               
-              <p className="editorial-body">
+              <p className="editorial-body leading-[1.65]">
                 I am particularly drawn to backend systems, APIs, and data persistence. In my projects—such as architecting the procurement request lifecycle in ASP.NET Core or building multi-step approval state machines in Spring Boot—I spend considerable time evaluating engineering trade-offs. Rather than reaching for tools out of novelty, I focus on why a specific architecture fits the operational problem.
               </p>
 
-              <p className="editorial-body">
+              <p className="editorial-body leading-[1.65]">
                 When integrating AI and agentic workflows, I believe strongly in <span className="text-accent-cyan font-mono font-medium">deterministic guardrails</span>. Large language models excel at interpreting unstructured human requests, but enterprise software demands strict validation before persisting entities to a database. Bridging those two worlds reliably is where interesting engineering happens.
               </p>
             </div>
@@ -63,45 +63,45 @@ export const AboutSection: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 
                 {/* Principle 01 */}
-                <div className="space-y-2 border-l-2 border-accent-violet/60 pl-4 py-0.5">
+                <div className="space-y-2 border-l-2 border-accent-violet/60 pl-4 sm:pl-5 pr-2 py-1">
                   <div className="flex items-center gap-2 font-mono text-sm sm:text-[14.5px] font-semibold text-primary-text">
                     <Compass className="w-4 h-4 text-accent-violet shrink-0" />
                     <span>01. Requirements Precedence</span>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
+                  <p className="text-xs sm:text-[13px] text-muted-text leading-[1.6] font-sans">
                     Clarifying operational realities, domain roles, and edge conditions before committing to database schemas or framework choices.
                   </p>
                 </div>
 
                 {/* Principle 02 */}
-                <div className="space-y-2 border-l-2 border-accent-cyan/60 pl-4 py-0.5">
+                <div className="space-y-2 border-l-2 border-accent-cyan/60 pl-4 sm:pl-5 pr-2 py-1">
                   <div className="flex items-center gap-2 font-mono text-sm sm:text-[14.5px] font-semibold text-primary-text">
                     <Layers className="w-4 h-4 text-accent-cyan shrink-0" />
                     <span>02. Pragmatic Boundaries</span>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
+                  <p className="text-xs sm:text-[13px] text-muted-text leading-[1.6] font-sans">
                     Choosing modular monoliths and clean layered boundaries over premature microservice distribution that introduces unnecessary network failure modes.
                   </p>
                 </div>
 
                 {/* Principle 03 */}
-                <div className="space-y-2 border-l-2 border-accent-rose/60 pl-4 py-0.5">
+                <div className="space-y-2 border-l-2 border-accent-rose/60 pl-4 sm:pl-5 pr-2 py-1">
                   <div className="flex items-center gap-2 font-mono text-sm sm:text-[14.5px] font-semibold text-primary-text">
                     <ShieldCheck className="w-4 h-4 text-accent-rose shrink-0" />
                     <span>03. Defensive Invariants</span>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
+                  <p className="text-xs sm:text-[13px] text-muted-text leading-[1.6] font-sans">
                     Validating ownership, role permissions, and concurrency stamps server-side so clients cannot bypass business invariants.
                   </p>
                 </div>
 
                 {/* Principle 04 */}
-                <div className="space-y-2 border-l-2 border-accent-violet/60 pl-4 py-0.5">
+                <div className="space-y-2 border-l-2 border-accent-violet/60 pl-4 sm:pl-5 pr-2 py-1">
                   <div className="flex items-center gap-2 font-mono text-sm sm:text-[14.5px] font-semibold text-primary-text">
                     <Terminal className="w-4 h-4 text-accent-violet shrink-0" />
                     <span>04. Verification Rigor</span>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
+                  <p className="text-xs sm:text-[13px] text-muted-text leading-[1.6] font-sans">
                     Backing domain rules with rigorous automated test suites (such as 217 xUnit tests in Procura) to verify system behavior matches specifications.
                   </p>
                 </div>
@@ -114,7 +114,7 @@ export const AboutSection: React.FC = () => {
           {/* Right: Technical Identity Dossier (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="relative border border-surface-border bg-midnight/70 p-4 sm:p-6 backdrop-blur-sm rounded-sm">
+            <div className="relative border border-surface-border bg-midnight/70 p-5 sm:p-7 backdrop-blur-sm rounded-sm shadow-lg">
               
               {/* Dossier Header Line */}
               <div className="flex items-center justify-between pb-3 border-b border-surface-border/50 text-[10px] font-mono text-muted-dim">

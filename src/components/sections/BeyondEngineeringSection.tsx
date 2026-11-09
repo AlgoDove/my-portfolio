@@ -1,0 +1,57 @@
+import React from 'react';
+import { Activity, BookOpen, PenTool } from 'lucide-react';
+import { BEYOND_ENGINEERING } from '../../data/portfolioData';
+
+export const BeyondEngineeringSection: React.FC = () => {
+  const getIcon = (title: string) => {
+    if (title.includes('Athletics')) return <Activity className="w-4 h-4 text-accent-cyan" />;
+    if (title.includes('Reading')) return <BookOpen className="w-4 h-4 text-accent-violet" />;
+    return <PenTool className="w-4 h-4 text-accent-rose" />;
+  };
+
+  return (
+    <section className="py-20 bg-midnight/25 border-b border-surface-border/40 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-4 border-b border-surface-border/50 gap-2">
+          <div className="space-y-1">
+            <span className="font-mono text-[11px] text-accent-cyan tracking-[0.2em] uppercase block">
+              07 // BEYOND ENGINEERING
+            </span>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary-text tracking-tight">
+              Discipline, Inquiry & Narrative Craft
+            </h2>
+          </div>
+          <div className="font-mono text-[11px] text-muted-dim">
+            CONFIRMED PERSONAL PURSUITS
+          </div>
+        </div>
+
+        {/* 3 Pillars Editorial Horizontal Flow */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {BEYOND_ENGINEERING.map((item, idx) => (
+            <div
+              key={idx}
+              className="border-l border-surface-border/80 pl-5 space-y-3"
+            >
+              <div className="flex items-center gap-2.5">
+                <div className="p-1.5 rounded bg-surface/50 border border-surface-border/60">
+                  {getIcon(item.title)}
+                </div>
+                <h3 className="font-heading text-base font-bold text-primary-text">
+                  {item.title}
+                </h3>
+              </div>
+
+              <p className="editorial-body text-xs sm:text-[13px] leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};

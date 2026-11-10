@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, FileText, Check, Copy, X, AlertCircle } from 'lucide-react';
+import { Download, FileText, Check, Copy, X } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
 interface CvModalProps {
@@ -101,17 +101,9 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
           {downloadTriggered && (
             <div className="p-2.5 rounded bg-accent-cyan/10 border border-accent-cyan/25 font-mono text-xs text-accent-cyan flex items-center gap-2">
               <Check className="w-3.5 h-3.5" />
-              <span>Download initiated: {PERSONAL_INFO.cvPath}</span>
+              <span>Download initiated: {PERSONAL_INFO.cvFilename}</span>
             </div>
           )}
-
-          {/* Verification Notice / Instructions */}
-          <div className="flex items-start gap-2 pt-2 text-[11px] text-muted-dim border-t border-surface-border/40">
-            <AlertCircle className="w-4 h-4 shrink-0 text-accent-violet mt-0.5" />
-            <p>
-              If the physical PDF has not yet been copied to the web server, place <code className="text-accent-violet font-mono px-1 py-0.5 bg-surface rounded">Gokulaselvan-I-Resume.pdf</code> into <code className="text-accent-cyan font-mono px-1 py-0.5 bg-surface rounded">public/files/</code>. The application is wired to serve it immediately without code modifications.
-            </p>
-          </div>
         </div>
       </div>
     </div>

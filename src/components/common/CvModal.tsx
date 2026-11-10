@@ -13,17 +13,6 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const handleDownload = () => {
-    setDownloadTriggered(true);
-    // Programmatically trigger download link
-    const link = document.createElement('a');
-    link.href = PERSONAL_INFO.cvPath;
-    link.download = PERSONAL_INFO.cvFilename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const copyPath = () => {
     navigator.clipboard.writeText(`public/files/${PERSONAL_INFO.cvFilename}`);
     setCopied(true);
@@ -81,13 +70,17 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
 
           {/* Action Trigger */}
           <div className="pt-2 flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={handleDownload}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-semibold transition-all shadow-md font-mono text-xs uppercase tracking-wider"
+            <a
+              href={PERSONAL_INFO.cvPath}
+              download={PERSONAL_INFO.cvFilename}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setDownloadTriggered(true)}
+              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-semibold transition-all shadow-md font-mono text-xs uppercase tracking-wider text-center"
             >
               <Download className="w-4 h-4" />
               Download Résumé (PDF)
-            </button>
+            </a>
             <button
               onClick={copyPath}
               className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded border border-surface-border hover:bg-surface text-primary-text font-mono text-xs transition-colors"

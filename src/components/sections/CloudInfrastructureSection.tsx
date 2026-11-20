@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { AWS_EXPLORATION_SCOPE } from '../../data/portfolioData';
 import type { AwsServiceItem } from '../../types/portfolio';
+import { ScrollReveal } from '../common/ScrollReveal';
 
 interface InfraZone {
   code: string;
@@ -104,65 +105,73 @@ export const CloudInfrastructureSection: React.FC = () => {
   };
 
   return (
-    <section id="cloud" className="py-24 bg-midnight/35 relative border-b border-surface-border/40 scroll-mt-16">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="cloud" className="py-24 bg-midnight/35 relative border-b border-surface-border/40 scroll-mt-20 overflow-hidden">
+      {/* Atmospheric lighting accents */}
+      <div className="absolute top-1/4 right-10 w-[500px] h-[400px] bg-accent-rose/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[400px] h-[350px] bg-accent-cyan/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
-          <div className="space-y-1">
-            <span className="font-mono text-xs sm:text-[13px] text-accent-rose tracking-[0.2em] uppercase block font-semibold">
-              05 // CLOUD INFRASTRUCTURE & ACTIVE LEARNING
-            </span>
-            <h2 className="font-heading text-3xl sm:text-[36px] lg:text-[42px] font-bold text-primary-text tracking-tight">
-              Systems Hosting & Operational Topologies
-            </h2>
+        <ScrollReveal>
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
+            <div className="space-y-1">
+              <span className="font-mono text-xs sm:text-[12.5px] text-accent-rose tracking-[0.25em] uppercase block font-semibold">
+                05 // CLOUD INFRASTRUCTURE & ACTIVE LEARNING
+              </span>
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[36px] font-bold text-primary-text tracking-[-0.02em]">
+                Systems Hosting & Operational Topologies
+              </h2>
+            </div>
+            <div className="font-mono text-xs text-accent-rose px-3 py-1.5 rounded bg-accent-rose/10 border border-accent-rose/30 inline-flex items-center gap-2 self-start sm:self-auto">
+              <span className="w-2 h-2 rounded-full bg-accent-rose animate-pulse" />
+              <span className="font-semibold tracking-wider">LEARNING SCOPE // HANDS-ON ROADMAP</span>
+            </div>
           </div>
-          <div className="font-mono text-xs text-accent-rose px-3 py-1.5 rounded bg-accent-rose/10 border border-accent-rose/30 inline-flex items-center gap-2 self-start sm:self-auto">
-            <span className="w-2 h-2 rounded-full bg-accent-rose animate-pulse" />
-            <span className="font-semibold tracking-wider">LEARNING SCOPE // HANDS-ON ROADMAP</span>
-          </div>
-        </div>
+        </ScrollReveal>
 
         {/* Narrative & Clear Staging Matrix */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-start">
-          
-          <div className="lg:col-span-6 space-y-4">
-            <div className="flex items-center gap-2 font-mono text-xs sm:text-[13px] text-primary-text font-semibold uppercase">
-              <Compass className="w-4 h-4 text-accent-rose" />
-              <span>Production Experience vs. Active Labs</span>
-            </div>
+        <ScrollReveal delayMs={60}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-start">
             
-            <p className="editorial-body editorial-body-prose leading-relaxed">
-              While my completed projects demonstrate hands-on containerization with <strong className="text-primary-text font-semibold">Docker</strong>, continuous integration via <strong className="text-primary-text font-semibold">GitHub Actions</strong>, and managed persistence on <strong className="text-primary-text font-semibold">Neon PostgreSQL</strong>, I am actively expanding into cloud-native AWS architecture.
-            </p>
-            
-            <p className="editorial-secondary max-w-xl leading-relaxed">
-              I distinguish strictly between technologies verified in production/internship work and cloud services currently explored in laboratory environments. The 10 services below constitute my focused infrastructure learning roadmap.
-            </p>
+            <div className="lg:col-span-6 space-y-4">
+              <div className="flex items-center gap-2 font-mono text-xs sm:text-[13px] text-primary-text font-semibold uppercase">
+                <Compass className="w-4 h-4 text-accent-rose" />
+                <span>Production Experience vs. Active Labs</span>
+              </div>
+              
+              <p className="editorial-body editorial-body-prose leading-relaxed">
+                While my completed projects demonstrate hands-on containerization with <strong className="text-primary-text font-semibold">Docker</strong>, continuous integration via <strong className="text-primary-text font-semibold">GitHub Actions</strong>, and managed persistence on <strong className="text-primary-text font-semibold">Neon PostgreSQL</strong>, I am actively expanding into cloud-native AWS architecture.
+              </p>
+              
+              <p className="editorial-secondary max-w-xl leading-relaxed">
+                I distinguish strictly between technologies verified in production/internship work and cloud services currently explored in laboratory environments. The 10 services below constitute my focused infrastructure learning roadmap.
+              </p>
+            </div>
+
+            {/* 3-Tier Experience Distinction Badges */}
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+              <div className="p-4 border border-surface-border bg-surface/25 space-y-1.5 rounded-sm">
+                <span className="font-mono text-[11.5px] text-accent-cyan uppercase font-bold tracking-wider block">01. REPO PROVEN</span>
+                <div className="font-mono text-[13.5px] font-bold text-primary-text">Docker & CI/CD</div>
+                <p className="text-[12.5px] sm:text-[13px] text-muted-text leading-relaxed">Multi-stage builds, GitHub Actions pipelines, Neon DB.</p>
+              </div>
+
+              <div className="p-4 border border-surface-border bg-surface/25 space-y-1.5 rounded-sm">
+                <span className="font-mono text-[11.5px] text-accent-violet uppercase font-bold tracking-wider block">02. JSC INTERNSHIP</span>
+                <div className="font-mono text-[13.5px] font-bold text-primary-text">Judicial ERP</div>
+                <p className="text-[12.5px] sm:text-[13px] text-muted-text leading-relaxed">Operational court registries, test suites, legacy data migration.</p>
+              </div>
+
+              <div className="p-4 border border-accent-rose/35 bg-surface/25 space-y-1.5 rounded-sm shadow-sm">
+                <span className="font-mono text-[11.5px] text-accent-rose uppercase font-bold tracking-wider block">03. ACTIVE LABS</span>
+                <div className="font-mono text-[13.5px] font-bold text-primary-text">AWS Native</div>
+                <p className="text-[12.5px] sm:text-[13px] text-muted-text leading-relaxed">Hands-on architecture labs across 10 core services.</p>
+              </div>
+            </div>
+
           </div>
-
-          {/* 3-Tier Experience Distinction Badges */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-            <div className="p-4 border border-surface-border bg-surface/25 space-y-1.5 rounded-sm">
-              <span className="font-mono text-[11px] text-accent-cyan uppercase font-bold tracking-wider block">01. REPO PROVEN</span>
-              <div className="font-mono text-[13px] font-bold text-primary-text">Docker & CI/CD</div>
-              <p className="text-xs text-muted-text leading-relaxed">Multi-stage builds, GitHub Actions pipelines, Neon DB.</p>
-            </div>
-
-            <div className="p-4 border border-surface-border bg-surface/25 space-y-1.5 rounded-sm">
-              <span className="font-mono text-[11px] text-accent-violet uppercase font-bold tracking-wider block">02. JSC INTERNSHIP</span>
-              <div className="font-mono text-[13px] font-bold text-primary-text">Judicial ERP</div>
-              <p className="text-xs text-muted-text leading-relaxed">Operational court registries, test suites, legacy data migration.</p>
-            </div>
-
-            <div className="p-4 border border-accent-rose/35 bg-surface/25 space-y-1.5 rounded-sm shadow-sm">
-              <span className="font-mono text-[11px] text-accent-rose uppercase font-bold tracking-wider block">03. ACTIVE LABS</span>
-              <div className="font-mono text-[13px] font-bold text-primary-text">AWS Native</div>
-              <p className="text-xs text-muted-text leading-relaxed">Hands-on architecture labs across 10 core services.</p>
-            </div>
-          </div>
-
-        </div>
+        </ScrollReveal>
 
         {/* ============================================================== */}
         {/* STRUCTURED TECHNICAL VISUALIZATION / INFRASTRUCTURE MAP        */}
@@ -284,45 +293,45 @@ export const CloudInfrastructureSection: React.FC = () => {
 
                 {/* 2. Plain-English Beginner-Friendly Explanation */}
                 <div className="space-y-1.5 bg-surface/30 p-3.5 border border-surface-border/60 rounded-sm">
-                  <div className="font-mono text-[11px] text-accent-violet font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                  <div className="font-mono text-[12px] text-accent-violet font-semibold uppercase tracking-wider flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5" />
                     <span>Plain English Overview</span>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-primary-text/90 leading-relaxed font-sans">
+                  <p className="text-[13.5px] sm:text-[14.5px] text-primary-text/95 leading-relaxed font-sans">
                     {activeService.explanation}
                   </p>
                 </div>
 
                 {/* 3. Purpose in Proposed Architecture */}
                 <div className="space-y-1.5">
-                  <div className="font-mono text-[11px] text-accent-cyan uppercase font-semibold tracking-wider">
+                  <div className="font-mono text-[12px] text-accent-cyan uppercase font-semibold tracking-wider">
                     ROLE IN PORTFOLIO ARCHITECTURE
                   </div>
-                  <p className="editorial-secondary text-xs sm:text-[13px] leading-relaxed">
+                  <p className="editorial-secondary text-[13.5px] sm:text-[14px] leading-relaxed">
                     {activeService.purpose}
                   </p>
                 </div>
 
                 {/* 4. Current Hands-on Lab Focus Area */}
                 <div className="p-3.5 border-l-2 border-accent-rose bg-surface/20 space-y-1.5 rounded-r-sm">
-                  <div className="font-mono text-[10.5px] text-accent-rose uppercase font-bold tracking-wider">
+                  <div className="font-mono text-[11.5px] text-accent-rose uppercase font-bold tracking-wider">
                     CURRENT HANDS-ON LAB FOCUS
                   </div>
-                  <p className="text-xs text-primary-text leading-relaxed font-mono">
+                  <p className="text-[12.5px] sm:text-[13px] text-primary-text leading-relaxed font-mono">
                     {activeService.focusArea}
                   </p>
                 </div>
 
                 {/* 5. Explored Concepts Tags */}
                 <div className="space-y-2">
-                  <div className="font-mono text-[11px] text-muted-dim uppercase font-semibold tracking-wider">
+                  <div className="font-mono text-[11.5px] text-muted-dim uppercase font-semibold tracking-wider">
                     CORE CONCEPTS UNDER LAB STUDY
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {activeService.concepts.map((concept, cIdx) => (
                       <span
                         key={cIdx}
-                        className="font-mono text-[11px] px-2.5 py-1 bg-surface/50 border border-surface-border text-primary-text/90 rounded-sm"
+                        className="font-mono text-[12px] sm:text-[12.5px] px-2.5 py-1 bg-surface/50 border border-surface-border text-primary-text/90 rounded-sm"
                       >
                         {concept}
                       </span>
@@ -333,10 +342,10 @@ export const CloudInfrastructureSection: React.FC = () => {
                 {/* 6. Connected & Related Services (Clickable for discovery) */}
                 <div className="space-y-2 pt-1 border-t border-surface-border/50">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] text-muted-dim uppercase font-semibold tracking-wider">
+                    <span className="font-mono text-[11.5px] text-muted-dim uppercase font-semibold tracking-wider">
                       CONNECTED SERVICES
                     </span>
-                    <span className="font-mono text-[10px] text-muted-dim">TAP TO INSPECT</span>
+                    <span className="font-mono text-[11px] text-muted-dim">TAP TO INSPECT</span>
                   </div>
                   <div className="space-y-1.5">
                     {activeService.relatedServices.map((rel, rIdx) => {
@@ -354,7 +363,7 @@ export const CloudInfrastructureSection: React.FC = () => {
                               : 'border-surface-border/40 bg-surface/10 text-muted-text'
                           }`}
                         >
-                          <span className="leading-snug text-xs sm:text-[12.5px] font-sans">
+                          <span className="leading-snug text-[13px] sm:text-[13.5px] font-sans">
                             {rel}
                           </span>
                           {matched && (
@@ -367,7 +376,7 @@ export const CloudInfrastructureSection: React.FC = () => {
                 </div>
 
                 {/* Telemetry Footer */}
-                <div className="pt-3 border-t border-surface-border/60 flex items-center justify-between text-[10.5px] font-mono text-muted-dim">
+                <div className="pt-3 border-t border-surface-border/60 flex items-center justify-between text-[11.5px] font-mono text-muted-dim">
                   <span>SYSTEM: AWS ARCHITECTURE LABS</span>
                   <span className="text-accent-rose font-semibold">UNDERGRADUATE SCOPE</span>
                 </div>

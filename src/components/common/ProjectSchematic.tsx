@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Maximize2 } from 'lucide-react';
 import { DiagramLightbox } from './DiagramLightbox';
 
@@ -17,6 +17,23 @@ export const ProjectSchematic: React.FC<ProjectSchematicProps> = ({
 }) => {
   const [imgFailed, setImgFailed] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [hasScanned, setHasScanned] = useState(false);
+  const schematicRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = schematicRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasScanned) {
+          setHasScanned(true);
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasScanned]);
 
   const renderSvg = () => {
     switch (projectId) {
@@ -263,9 +280,20 @@ export const ProjectSchematic: React.FC<ProjectSchematicProps> = ({
 
   return (
     <>
-      <div className={`relative overflow-hidden rounded border border-surface-border bg-midnight/90 p-4 font-mono select-none flex flex-col justify-between ${className}`}>
+      <div 
+        ref={schematicRef}
+        className={`group relative overflow-hidden rounded border border-surface-border bg-midnight/90 p-4 font-mono select-none flex flex-col justify-between transition-all duration-300 hover:border-accent-cyan/40 hover:shadow-[0_0_20px_rgba(121,201,223,0.12)] ${className}`}
+      >
         {/* Background technical grid */}
         <div className="absolute inset-0 bg-tech-grid opacity-35 pointer-events-none" />
+
+        {/* Viewport Entry Signal Scan Beam (Plays once on scroll arrival) */}
+        {hasScanned && (
+          <div 
+            aria-hidden="true"
+            className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-accent-cyan to-transparent pointer-events-none z-20 animate-schematic-scan shadow-[0_0_8px_#79C9DF]" 
+          />
+        )}
         
         {/* Header status line */}
         <div className="relative z-10 flex items-center justify-between border-b border-surface-border/60 pb-2 mb-3">

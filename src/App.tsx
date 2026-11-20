@@ -15,6 +15,7 @@ import { ProjectModal } from './components/common/ProjectModal';
 import { CursorGlow } from './components/common/CursorGlow';
 import { SkillsTicker } from './components/common/SkillsTicker';
 import { TouchSignalRipple } from './components/common/TouchSignalRipple';
+import { SignalGenesisLoader } from './components/common/SignalGenesisLoader';
 import type { Project } from './types/portfolio';
 
 export function App() {
@@ -28,6 +29,9 @@ export function App() {
      * CursorGlow sits at z-0 behind all content via fixed positioning.
      */
     <div className="site-grid-bg min-h-screen text-primary-text selection:bg-accent-violet/30 selection:text-white font-sans antialiased overflow-x-clip relative">
+
+      {/* Signature Initializer Sequence — Plays once per tab session */}
+      <SignalGenesisLoader />
 
       {/* Background cursor spotlight — stays behind everything */}
       <CursorGlow />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Download } from 'lucide-react';
+import { ArrowUp, Download, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
 interface FooterProps {
@@ -35,10 +35,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
 
           {/* Quick Links (4 cols) */}
           <div className="md:col-span-4 space-y-2">
-            <div className="text-[10px] uppercase text-primary-text font-semibold tracking-wider">
+            <div className="text-[11.5px] uppercase text-primary-text font-semibold tracking-wider">
               SECTION INDICES
             </div>
-            <div className="grid grid-cols-2 gap-1.5 text-[11px]">
+            <div className="grid grid-cols-2 gap-1.5 text-[12px] sm:text-[12.5px]">
               <a href="#about" className="hover:text-accent-cyan transition-colors">01. Philosophy</a>
               <a href="#work" className="hover:text-accent-cyan transition-colors">02. Selected Work</a>
               <a href="#experience" className="hover:text-accent-cyan transition-colors">03. Experience</a>
@@ -48,13 +48,24 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
               <a href="#beyond" className="hover:text-accent-cyan transition-colors">07. Beyond Engineering</a>
               <a href="#contact" className="hover:text-accent-cyan transition-colors">08. Contact</a>
             </div>
-            <div className="pt-1">
+            <div className="pt-1 space-y-1.5">
               <button
                 onClick={onOpenCvModal}
-                className="text-left text-accent-violet hover:underline flex items-center gap-1 text-[11px]"
+                className="text-left text-accent-violet hover:underline flex items-center gap-1 text-[12px]"
               >
                 <span>Download Résumé (PDF)</span>
-                <Download className="w-3 h-3" />
+                <Download className="w-3.5 h-3.5" />
+              </button>
+              <button
+                onClick={() => {
+                  sessionStorage.removeItem('signal_genesis_viewed');
+                  window.location.search = '?intro=true';
+                }}
+                className="text-left text-accent-cyan hover:underline flex items-center gap-1 text-[11.5px] opacity-80 hover:opacity-100 transition-opacity"
+                title="Replay Signature Signal Genesis Sequence"
+              >
+                <span>Replay Signal Genesis</span>
+                <Sparkles className="w-3.5 h-3.5 text-accent-cyan" />
               </button>
             </div>
           </div>
@@ -62,17 +73,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
           {/* Telemetry & Action (3 cols) */}
           <div className="md:col-span-3 space-y-3 md:text-right flex flex-col justify-between">
             <div className="space-y-1">
-              <div className="text-[10px] uppercase text-primary-text font-semibold tracking-wider">
+              <div className="text-[11.5px] uppercase text-primary-text font-semibold tracking-wider">
                 SYSTEM TELEMETRY
               </div>
-              <div className="text-[11px] text-muted-dim">STATUS: RUNNING</div>
-              <div className="text-[11px] text-accent-cyan">CLIENT: REACT 18 + TS</div>
+              <div className="text-[12px] text-muted-dim">STATUS: RUNNING</div>
+              <div className="text-[12px] text-accent-cyan">CLIENT: REACT + TS</div>
             </div>
 
             <div>
               <button
                 onClick={scrollToTop}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface hover:bg-surface-elevated border border-surface-border text-primary-text text-[11px] transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface hover:bg-surface-elevated border border-surface-border text-primary-text text-[12px] transition-colors"
               >
                 <span>Back to Top</span>
                 <ArrowUp className="w-3.5 h-3.5 text-accent-cyan" />
@@ -83,9 +94,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
         </div>
 
         {/* Bottom Baseline Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-muted-dim">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-muted-dim">
           <div>
-            © {new Date().getFullYear()} {PERSONAL_INFO.name}. Designed & Built with Nocturne / Signal System.
+            © 2026 {PERSONAL_INFO.name}. Designed & Built with Nocturne / Signal System.
           </div>
 
           <div className="flex items-center gap-4">

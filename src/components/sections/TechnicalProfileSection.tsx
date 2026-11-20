@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Code2, Server, Layout, Database, TestTube2, BrainCircuit, Wrench, ChevronRight } from 'lucide-react';
 import { TECHNICAL_SKILLS } from '../../data/portfolioData';
+import { ScrollReveal } from '../common/ScrollReveal';
 
 export const TechnicalProfileSection: React.FC = () => {
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
@@ -50,23 +51,29 @@ export const TechnicalProfileSection: React.FC = () => {
   const currentAccent = getCategoryAccent(activeCategory.title);
 
   return (
-    <section id="stack" className="py-24 bg-obsidian/90 border-b border-surface-border/40 relative scroll-mt-16">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="stack" className="py-24 bg-obsidian/90 border-b border-surface-border/40 relative scroll-mt-20 overflow-hidden">
+      {/* Atmospheric lighting accents */}
+      <div className="absolute top-1/4 right-1/4 w-[550px] h-[400px] bg-accent-cyan/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/3 left-10 w-[450px] h-[350px] bg-accent-violet/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
-          <div className="space-y-1">
-            <span className="font-mono text-xs sm:text-[13px] text-accent-cyan tracking-[0.2em] uppercase block font-semibold">
-              04 // TECHNICAL PROFILE & FOUNDATIONS
-            </span>
-            <h2 className="font-heading text-3xl sm:text-[36px] lg:text-[42px] font-bold text-primary-text tracking-tight">
-              The Tools Behind the Work
-            </h2>
+        <ScrollReveal>
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-16 pb-4 border-b border-surface-border/50 gap-2">
+            <div className="space-y-1">
+              <span className="font-mono text-xs sm:text-[12.5px] text-accent-cyan tracking-[0.25em] uppercase block font-semibold">
+                04 // TECHNICAL PROFILE & FOUNDATIONS
+              </span>
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[36px] font-bold text-primary-text tracking-[-0.02em]">
+                The Tools Behind the Work
+              </h2>
+            </div>
+            <p className="font-mono text-xs text-muted-dim max-w-sm text-left sm:text-right tracking-wide">
+              STRUCTURED BY DOMAIN APPLICATION • NO ARBITRARY PERCENTAGE GAUGES
+            </p>
           </div>
-          <p className="font-mono text-xs text-muted-dim max-w-sm text-left sm:text-right tracking-wide">
-            STRUCTURED BY DOMAIN APPLICATION • NO ARBITRARY PERCENTAGE GAUGES
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Mobile Horizontally Scrollable Tabs (Visible only on mobile/tablet) */}
         <div className="lg:hidden mb-6">
@@ -81,7 +88,7 @@ export const TechnicalProfileSection: React.FC = () => {
                 <button
                   key={idx}
                   onClick={() => setSelectedCategoryIndex(idx)}
-                  className={`min-h-[44px] shrink-0 px-3.5 py-2 font-mono text-xs flex items-center gap-2 rounded-sm snap-start transition-all ${
+                  className={`min-h-[44px] shrink-0 px-3.5 py-2 font-mono text-[12.5px] sm:text-[13px] flex items-center gap-2 rounded-sm snap-start transition-all ${
                     isActive
                       ? 'bg-accent-violet text-obsidian font-bold shadow-md'
                       : 'bg-surface/50 border border-surface-border text-muted-text hover:text-primary-text'
@@ -96,96 +103,98 @@ export const TechnicalProfileSection: React.FC = () => {
         </div>
 
         {/* Master-Detail Index Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          
-          {/* Left: Domain Category Index (Desktop only, 4 cols) */}
-          <div className="hidden lg:block lg:col-span-4 space-y-1.5">
-            <div className="font-mono text-xs text-muted-dim uppercase tracking-wider pb-2 border-b border-surface-border/40 mb-2 font-semibold">
-              CATALOGUE DIRECTORY ({TECHNICAL_SKILLS.length} DOMAINS)
+        <ScrollReveal delayMs={60}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
+            {/* Left: Domain Category Index (Desktop only, 4 cols) */}
+            <div className="hidden lg:block lg:col-span-4 space-y-1.5">
+              <div className="font-mono text-xs text-muted-dim uppercase tracking-wider pb-2 border-b border-surface-border/40 mb-2 font-semibold">
+                CATALOGUE DIRECTORY ({TECHNICAL_SKILLS.length} DOMAINS)
+              </div>
+
+              {TECHNICAL_SKILLS.map((cat, idx) => {
+                const isActive = selectedCategoryIndex === idx;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedCategoryIndex(idx)}
+                    className={`w-full min-h-[44px] flex items-center justify-between p-3 text-left font-mono text-[13px] sm:text-[13.5px] transition-all border-l-2 rounded-r-sm ${
+                      isActive
+                        ? 'border-accent-violet bg-surface/50 text-primary-text font-bold shadow-sm'
+                        : 'border-transparent text-muted-text hover:text-primary-text hover:bg-surface/20'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-[11.5px] text-muted-dim">0{idx + 1}.</span>
+                      <span className={isActive ? 'text-accent-violet' : 'text-muted-dim'}>
+                        {getIcon(cat.title)}
+                      </span>
+                      <span className="tracking-tight">{cat.title}</span>
+                    </div>
+                    <ChevronRight className={`w-4 h-4 transition-transform ${isActive ? 'translate-x-0.5 text-accent-violet' : 'opacity-0'}`} />
+                  </button>
+                );
+              })}
             </div>
 
-            {TECHNICAL_SKILLS.map((cat, idx) => {
-              const isActive = selectedCategoryIndex === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedCategoryIndex(idx)}
-                  className={`w-full min-h-[44px] flex items-center justify-between p-3 text-left font-mono text-xs sm:text-[12.5px] transition-all border-l-2 rounded-r-sm ${
-                    isActive
-                      ? 'border-accent-violet bg-surface/50 text-primary-text font-bold shadow-sm'
-                      : 'border-transparent text-muted-text hover:text-primary-text hover:bg-surface/20'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-[11px] text-muted-dim">0{idx + 1}.</span>
-                    <span className={isActive ? 'text-accent-violet' : 'text-muted-dim'}>
-                      {getIcon(cat.title)}
-                    </span>
-                    <span className="tracking-tight">{cat.title}</span>
+            {/* Right: Technical Catalogue Detail (8 cols) */}
+            <div className="lg:col-span-8">
+              <div className="border border-surface-border/80 bg-midnight/80 p-5 sm:p-8 backdrop-blur-sm space-y-6 rounded-sm shadow-lg">
+                
+                {/* Category Header */}
+                <div className="border-b border-surface-border/50 pb-4">
+                  <div className="flex items-center justify-between font-mono text-[12px] text-accent-violet mb-2">
+                    <div className="flex items-center gap-2">
+                      {getIcon(activeCategory.title)}
+                      <span className="uppercase tracking-wider font-semibold">DOMAIN SPECIFICATION</span>
+                    </div>
+                    <span className="text-muted-dim">{activeCategory.skills.length} TOOLS DOCUMENTED</span>
                   </div>
-                  <ChevronRight className={`w-4 h-4 transition-transform ${isActive ? 'translate-x-0.5 text-accent-violet' : 'opacity-0'}`} />
-                </button>
-              );
-            })}
-          </div>
 
-          {/* Right: Technical Catalogue Detail (8 cols) */}
-          <div className="lg:col-span-8">
-            <div className="border border-surface-border/80 bg-midnight/80 p-5 sm:p-8 backdrop-blur-sm space-y-6 rounded-sm shadow-lg">
-              
-              {/* Category Header */}
-              <div className="border-b border-surface-border/50 pb-4">
-                <div className="flex items-center justify-between font-mono text-xs text-accent-violet mb-2">
-                  <div className="flex items-center gap-2">
-                    {getIcon(activeCategory.title)}
-                    <span className="uppercase tracking-wider font-semibold">DOMAIN SPECIFICATION</span>
-                  </div>
-                  <span className="text-muted-dim">{activeCategory.skills.length} TOOLS DOCUMENTED</span>
+                  <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary-text">
+                    {activeCategory.title}
+                  </h3>
+                  
+                  <p className="editorial-secondary text-muted-text mt-1.5 max-w-xl text-[14.5px] sm:text-[15.5px] leading-relaxed">
+                    {activeCategory.description}
+                  </p>
                 </div>
 
-                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary-text">
-                  {activeCategory.title}
-                </h3>
-                
-                <p className="editorial-secondary text-muted-text mt-1.5 max-w-xl">
-                  {activeCategory.description}
-                </p>
-              </div>
+                {/* Editorial Technical List */}
+                <div className="divide-y divide-surface-border/40">
+                  {activeCategory.skills.map((skill, sIdx) => (
+                    <div
+                      key={sIdx}
+                      className="py-3.5 first:pt-1 last:pb-1 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 px-2 -mx-2 select-text"
+                    >
+                      {/* Non-interactive informational badge */}
+                      <div className="sm:w-1/3 shrink-0 flex items-center gap-2">
+                        <span
+                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded font-mono text-[13px] sm:text-[13.5px] font-medium cursor-default select-text ${currentAccent.pill}`}
+                        >
+                          <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${currentAccent.dot}`} />
+                          <span>{skill.name}</span>
+                        </span>
+                      </div>
 
-              {/* Editorial Technical List */}
-              <div className="divide-y divide-surface-border/40">
-                {activeCategory.skills.map((skill, sIdx) => (
-                  <div
-                    key={sIdx}
-                    className="py-3.5 first:pt-1 last:pb-1 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 px-2 -mx-2 select-text"
-                  >
-                    {/* Non-interactive informational badge */}
-                    <div className="sm:w-1/3 shrink-0 flex items-center gap-2">
-                      <span
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded font-mono text-xs font-medium cursor-default select-text ${currentAccent.pill}`}
-                      >
-                        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${currentAccent.dot}`} />
-                        <span>{skill.name}</span>
-                      </span>
+                      <div className="sm:w-2/3 text-[13.5px] sm:text-[14px] text-muted-text leading-relaxed font-sans">
+                        {skill.context}
+                      </div>
                     </div>
+                  ))}
+                </div>
 
-                    <div className="sm:w-2/3 text-xs sm:text-[13px] text-muted-text leading-relaxed font-sans">
-                      {skill.context}
-                    </div>
-                  </div>
-                ))}
+                {/* Verification Stamp Footnote */}
+                <div className="pt-3 border-t border-surface-border/40 flex items-center justify-between text-[12px] sm:text-[12.5px] font-mono text-muted-dim">
+                  <span>SELECTION CRITERIA: EMPLOYED IN REPOSITORIES & INTERNSHIP</span>
+                  <span className="text-accent-violet font-semibold">SLIIT / JSC</span>
+                </div>
+
               </div>
-
-              {/* Verification Stamp Footnote */}
-              <div className="pt-3 border-t border-surface-border/40 flex items-center justify-between text-xs font-mono text-muted-dim">
-                <span>SELECTION CRITERIA: EMPLOYED IN REPOSITORIES & INTERNSHIP</span>
-                <span className="text-accent-violet font-semibold">SLIIT / JSC</span>
-              </div>
-
             </div>
-          </div>
 
-        </div>
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>

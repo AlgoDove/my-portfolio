@@ -6,18 +6,18 @@
   :root {
     color-scheme: dark;
     /* ── Typography tokens ─────────────────────────────────────────────── */
-    --text-body:        1.0625rem;  /* 17px  – main body */
-    --text-body-sm:     1rem;       /* 16px  – mobile body */
-    --text-secondary:   0.9375rem;  /* 15px  – secondary/meta descriptions */
-    --text-secondary-sm:0.90625rem; /* 14.5px*/
-    --text-lead:        1.125rem;   /* 18px  – lead/intro sentences */
-    --text-lead-sm:     1.0625rem;  /* 17px  */
-    --text-mono-sm:     0.75rem;    /* 12px  – mono labels */
-    --text-mono-xs:     0.6875rem;  /* 11px  – micro metadata */
+    --text-body:        1rem;       /* 16px – meets 15–17px desktop body target */
+    --text-body-sm:     0.9375rem;  /* 15px – mobile body */
+    --text-secondary:   0.9375rem;  /* 15px – meets 15–17px desktop descriptions target */
+    --text-secondary-sm:0.875rem;   /* 14px – mobile secondary */
+    --text-lead:        1.125rem;   /* 18px – lead/intro sentences */
+    --text-lead-sm:     1.03125rem; /* 16.5px */
+    --text-mono-sm:     0.8125rem;  /* 13px – meets 12–13px secondary technical labels target */
+    --text-mono-xs:     0.75rem;    /* 12px – secondary micro metadata */
 
-    --lh-body:   1.65;
-    --lh-tight:  1.45;
-    --lh-relaxed:1.75;
+    --lh-body:   1.70;
+    --lh-tight:  1.40;
+    --lh-relaxed:1.80;
 
     --prose-width: 68ch;
   }
@@ -148,6 +148,233 @@
   animation-play-state: paused;
 }
 
+/* ── Signal Genesis & Telemetry Keyframes ──────────────────────────────── */
+@keyframes carrierSweep {
+  0% {
+    stroke-dashoffset: 400;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+.animate-carrier-sweep {
+  animation: carrierSweep 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spinMedium {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-spin-medium {
+  animation: spinMedium 12s linear infinite;
+}
+
+@keyframes spinReverseMedium {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+.animate-spin-reverse-medium {
+  animation: spinReverseMedium 16s linear infinite;
+}
+
+@keyframes pulseGentle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(215, 124, 203, 0.6));
+  }
+}
+
+.animate-pulse-gentle {
+  animation: pulseGentle 2.2s ease-in-out infinite;
+}
+
+@keyframes waveFlutter {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleY(1.3);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 4px rgba(121, 201, 223, 0.7));
+  }
+}
+
+.animate-wave-flutter {
+  animation: waveFlutter 0.35s ease-in-out infinite alternate;
+}
+
+/* ── Signal Genesis Orbital Pulse & Flicker Keyframes ───────────────────── */
+@keyframes signalLineFlicker {
+  0%, 100% {
+    opacity: 0.85;
+  }
+  16% {
+    opacity: 0.85;
+  }
+  18% {
+    opacity: 0.40;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  58% {
+    opacity: 0.90;
+  }
+  60% {
+    opacity: 0.32;
+  }
+  62% {
+    opacity: 0.90;
+  }
+  84% {
+    opacity: 0.90;
+  }
+  86% {
+    opacity: 0.50;
+  }
+  88% {
+    opacity: 0.85;
+  }
+}
+
+.animate-signal-flicker {
+  animation: signalLineFlicker 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes emblemSweep {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-emblem-sweep {
+  animation: emblemSweep 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
+  animation-delay: 0.15s;
+}
+
+@keyframes orbitDashFlow {
+  from {
+    stroke-dashoffset: 360;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-orbit-dash {
+  animation: orbitDashFlow 8s linear infinite;
+}
+
+/* ── Navbar Carrier Pulse Sweep ─────────────────────────────────────────── */
+@keyframes navbarCarrierPulse {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+
+.animate-navbar-pulse {
+  animation: navbarCarrierPulse 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 2s;
+}
+
+/* ── Hardware Status LED Micro-Flicker ─────────────────────────────────── */
+@keyframes statusLedFlicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  51% {
+    opacity: 0.4;
+  }
+  52% {
+    opacity: 1;
+  }
+}
+
+.animate-led-flicker {
+  animation: statusLedFlicker 20s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ── Schematic Transmission Scan Line ──────────────────────────────────── */
+@keyframes schematicScanSweep {
+  0% {
+    top: -20%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 120%;
+    opacity: 0;
+  }
+}
+
+.animate-schematic-scan {
+  animation: schematicScanSweep 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* ── Terminal Blinking Cursor ───────────────────────────────────────────── */
+@keyframes terminalBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-terminal-blink {
+  animation: terminalBlink 1s steps(2, start) infinite;
+}
+
 /* ── Mobile Touch Signal Ripple (NOCTURNE / SIGNAL) ─────────────────────── */
 @keyframes signalCorePulse {
   0% {
@@ -269,19 +496,19 @@
 
 /* Primary body text */
 .editorial-body {
-  font-size: var(--text-body-sm);  /* 16px mobile */
+  font-size: var(--text-body-sm);  /* 15px mobile */
   line-height: var(--lh-body);
-  color: #CFC7DC;
+  color: #D1C8DF;
 }
 @media (min-width: 640px) {
-  .editorial-body { font-size: var(--text-body); /* 17px desktop */ }
+  .editorial-body { font-size: var(--text-body); /* 16px desktop */ }
 }
 
 /* Secondary / supporting descriptions */
 .editorial-secondary {
-  font-size: var(--text-secondary-sm); /* 14.5px mobile */
-  line-height: 1.6;
-  color: #AAA2B9;
+  font-size: var(--text-secondary-sm); /* 14px mobile */
+  line-height: 1.65;
+  color: #B5ADCA;
 }
 @media (min-width: 640px) {
   .editorial-secondary { font-size: var(--text-secondary); /* 15px desktop */ }
@@ -293,10 +520,23 @@
 /* Monospace micro-label — section codes, metadata tags */
 .marginalia {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: var(--text-mono-sm);   /* 12px */
+  font-size: var(--text-mono-sm);   /* 13px */
   letter-spacing: 0.08em;
-  color: #8E859E;
+  color: #9F97B0;
   text-transform: uppercase;
+}
+
+/* ── Smooth GPU-composited Scroll Reveal ─────────────────────────────────── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1), transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 /* ── Editorial Borders & Dividers ───────────────────────────────────────── */
@@ -343,6 +583,11 @@
   }
   .flow-animated,
   .flow-animated-reverse { animation: none !important; }
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
   .animate-skills-ticker {
     animation: none !important;
     transform: none !important;

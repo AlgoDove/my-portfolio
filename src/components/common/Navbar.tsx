@@ -58,12 +58,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
 
   return (
     <header
-      className={`sticky top-0 z-[100] w-full transition-all duration-300 bg-obsidian/80 backdrop-blur-md [-webkit-backdrop-filter:blur(12px)] border-b py-3 shadow-lg ${
+      className={`sticky top-0 z-[100] w-full transition-all duration-300 bg-obsidian/80 backdrop-blur-md [-webkit-backdrop-filter:blur(12px)] border-b py-3 shadow-lg relative overflow-hidden ${
         isScrolled
           ? 'border-surface-border/80 shadow-obsidian/60'
           : 'border-surface-border/40 shadow-obsidian/30'
       }`}
     >
+      {/* Carrier Signal Pulse along bottom border */}
+      <div 
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 w-1/3 h-[1.5px] bg-gradient-to-r from-transparent via-accent-cyan/80 to-transparent pointer-events-none animate-navbar-pulse" 
+      />
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Identity / Wordmark */}
@@ -91,10 +96,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
               <a
                 key={link.id}
                 href={link.href}
-                className={`px-3 py-1.5 rounded font-mono text-xs transition-all ${
+                className={`px-2.5 xl:px-3 py-1.5 rounded font-mono text-[13px] xl:text-[13.5px] font-medium border transition-colors duration-150 ease-out ${
                   activeSection === link.id
-                    ? 'text-accent-cyan bg-surface/60 border border-accent-cyan/40 shadow-[0_0_12px_rgba(121,201,223,0.22)] font-semibold'
-                    : 'text-muted-text hover:text-primary-text hover:bg-surface/30'
+                    ? 'text-accent-cyan bg-surface/60 border-accent-cyan/40 shadow-[0_0_12px_rgba(121,201,223,0.20)]'
+                    : 'text-muted-text hover:text-primary-text hover:bg-surface/30 border-transparent'
                 }`}
               >
                 {link.label}
@@ -104,14 +109,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
 
           {/* Right Action: Available Status & Download Résumé Button */}
           <div className="hidden sm:flex items-center gap-3">
-            <div className="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface/40 border border-surface-border font-mono text-[11px] text-muted-text">
+            <div className="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface/40 border border-surface-border font-mono text-[12px] text-muted-text">
               <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
               <span>COLOMBO, LK</span>
             </div>
 
             <button
               onClick={onOpenCvModal}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-surface hover:bg-surface-elevated border border-surface-border text-primary-text font-mono text-xs font-medium hover:border-accent-violet transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-surface hover:bg-surface-elevated border border-surface-border text-primary-text font-mono text-[13px] font-medium hover:border-accent-violet transition-colors duration-150"
             >
               <Download className="w-3.5 h-3.5 text-accent-violet" />
               <span>Download Résumé (PDF)</span>
@@ -155,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
                 key={link.id}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`min-h-[44px] flex items-center px-4 py-2.5 rounded font-mono text-xs sm:text-[13px] transition-colors ${
+                className={`min-h-[44px] flex items-center px-4 py-2.5 rounded font-mono text-[13.5px] sm:text-sm transition-colors ${
                   activeSection === link.id
                     ? 'text-accent-cyan bg-surface border border-accent-cyan/30 font-semibold'
                     : 'text-muted-text hover:text-primary-text hover:bg-surface/50'
@@ -170,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
                   setMobileMenuOpen(false);
                   onOpenCvModal();
                 }}
-                className="w-full min-h-[44px] flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-mono text-xs sm:text-[13px] font-bold shadow-md"
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-accent-violet hover:bg-accent-violet/90 text-obsidian font-mono text-[13.5px] font-bold shadow-md"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Résumé (PDF)</span>
